@@ -1,2 +1,49 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<section id="home-banner">
+  <div class="banner-wrapper">
+    <h1>rCab Header text</h1>
+    <h4>Lorem ipsum some call to action on this line more text</h4>
+    <%= link_to 'Sign up', new_user_session_path, class: 'btn btn-success btn-lg btn-rCab' %>
+  </div>
+</section>
+
+
+<section id="home-content">
+  <h2 class="home-title">Why rCab?</h2>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 col-md-4">
+        <div class="home-card">
+          <p>Some text about why rCab</p>
+        </div>
+      </div>
+      <div class="col-12 col-md-4">
+        <div class="home-card">
+          <p>Some text about why rCab</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <h2 class="home-title">How it Works</h2>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 col-md-4">
+        <div class="home-card">
+          <p class="card-number">1</p>
+          <p>Some text about how rCab Works</p>
+        </div>
+      </div>
+      <div class="col-12 col-md-4">
+        <div class="home-card">
+          <p class="card-number">2</p>
+          <p>Some text about how rCab Works</p>
+        </div>
+      </div>
+      <div class="col-12 col-md-4">
+        <div class="home-card">
+          <p class="card-number">3</p>
+          <p>Some text about how rCab Works</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
