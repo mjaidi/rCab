@@ -9,6 +9,10 @@ class User < ApplicationRecord
   validates :phone, presence: :true, uniqueness: { case_sensitive: false }
   validates :phone, format: { with: /((\+|00)212|0)\s*[1-9](?:[\s.-]*\d{2}){4}/ }
 
+  mount_uploader :photo, PhotoUploader
+  mount_uploader :photo_moto, PhotoUploader
+  mount_uploader :photo_cin, PhotoUploader
+
   # To remove email from sign_up requirements (overriding devise)
   def email_required?
    false
