@@ -47,6 +47,30 @@
             <span class="bar"></span>
             <%= f.label :password_confirmation, label: 'Confirmation mot de passe', class: 'material' %>
           </div>
+          <div class="group">
+            <%= f.input :photo,
+                      required: false,
+                      autofocus: true , wrapper: false, label: "Photo de profile"%>
+            <span class="highlight"></span>
+            <span class="bar"></span>
+            <%= f.input :photo_cache, as: :hidden %>
+          </div>
+          <div class="group">
+            <%= f.input :photo_moto,
+                      required: false,
+                      autofocus: true , wrapper: false, label: "Photo de votre moto" %>
+            <span class="highlight"></span>
+            <span class="bar"></span>
+            <%= f.input :photo_moto_cache, as: :hidden %>
+          </div>
+          <div class="group">
+            <%= f.input :photo_cin,
+                      required: false,
+                      autofocus: true , wrapper: false, label: "Photo de votre CIN "%>
+            <span class="highlight"></span>
+            <span class="bar"></span>
+            <%= f.input :photo_cin_cache, as: :hidden %>
+          </div>
       </div>
 
       <div class="form-actions flex-center">

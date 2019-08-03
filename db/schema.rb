@@ -47,7 +47,7 @@ ActiveRecord::Schema.define(version: 2019_07_16_133008) do
     t.string "photo_moto"
     t.string "photo_cin"
     t.string "photo"
-    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["email"], name: "index_users_on_email"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
