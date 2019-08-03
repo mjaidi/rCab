@@ -8,6 +8,10 @@ class CoursesController < ApplicationController
   end
 
   def show
+    @markers = {
+      start_address: { lat: @course.start_lat, lng: @course.start_lon },
+      end_address: { lat: @course.end_lat, lng: @course.end_lon }
+    }
   end
 
   def new
