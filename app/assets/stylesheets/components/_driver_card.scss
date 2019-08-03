@@ -1,0 +1,32 @@
+#driver_card {
+  .card {
+    min-height: 20rem;
+    padding: 6rem 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 6rem 0;
+    background: #EEEEEE;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 4px;
+    position: relative;
+    text-align: center;
+    p {
+      font-weight: lighter;
+    }
+    .card-avatar {
+      font-weight: bold;
+      color: white;
+      background: $green;
+      border-radius: 50%;
+      position: absolute;
+      top: -10px;
+      left: -10px;
+      width: 2.5rem;
+      height: 2.5rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+}
