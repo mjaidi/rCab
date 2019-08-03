@@ -16,9 +16,8 @@ ActiveRecord::Schema.define(version: 2019_08_03_090834) do
   enable_extension "plpgsql"
 
   create_table "courses", force: :cascade do |t|
-    t.string "start_eddress"
+    t.string "start_address"
     t.string "end_address"
-    t.date "resa_date"
     t.float "price"
     t.integer "client_id"
     t.integer "driver_id"
@@ -40,9 +39,9 @@ ActiveRecord::Schema.define(version: 2019_08_03_090834) do
     t.string "first_name"
     t.string "last_name"
     t.string "phone"
-    t.boolean "verified_whatsapp"
-    t.boolean "admin"
-    t.boolean "driver"
+    t.boolean "verified_whatsapp", default: false, null: false
+    t.boolean "admin", default: false, null: false
+    t.boolean "driver", default: false, null: false
     t.string "photo_moto"
     t.string "photo_cin"
     t.string "photo"
