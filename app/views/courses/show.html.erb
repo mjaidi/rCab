@@ -1,0 +1,54 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Start eddress:</strong>
+  <%= @course.start_eddress %>
+</p>
+
+<p>
+  <strong>End address:</strong>
+  <%= @course.end_address %>
+</p>
+
+<p>
+  <strong>Resa date:</strong>
+  <%= @course.resa_date %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @course.price %>
+</p>
+
+<p>
+  <strong>Client:</strong>
+  <%= @course.client_id %>
+</p>
+
+<p>
+  <strong>Driver:</strong>
+  <%= @course.driver_id %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @course.user %>
+</p>
+
+<p>
+  <strong>Note:</strong>
+  <%= @course.note %>
+</p>
+
+<p>
+  <strong>Comment:</strong>
+  <%= @course.comment %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @course.status %>
+</p>
+
+<%= link_to 'Edit', edit_course_path(@course) %> |
+<%= link_to 'Back', courses_path %>

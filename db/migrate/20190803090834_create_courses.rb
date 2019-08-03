@@ -1,16 +1,16 @@
 class CreateCourses < ActiveRecord::Migration[5.2]
   def change
     create_table :courses do |t|
-      t.datetime :date
-      t.string :start_address
+      t.string :start_eddress
       t.string :end_address
-      t.integer :price
+      t.date :resa_date
+      t.float :price
       t.integer :client_id
       t.integer :driver_id
-      t.integer :note_course
-      t.integer :note_driver
-      t.text :comment_course
-      t.string :course_status
+      # t.references :user, foreign_key: true
+      t.integer :note
+      t.text :comment
+      t.string :status
 
       t.timestamps
     end
