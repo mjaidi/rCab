@@ -3,6 +3,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, authentication_keys: [:phone]
+
   has_many :driver_courses, class_name: 'Course', foreign_key: :driver_id
   has_many :client_courses, class_name: 'Course', foreign_key: :client_id
 
@@ -17,4 +18,5 @@ class User < ApplicationRecord
   def email_required?
    false
   end
+
 end

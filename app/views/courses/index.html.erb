@@ -5,9 +5,8 @@
 <table>
   <thead>
     <tr>
-      <th>Start eddress</th>
+      <th>Start address</th>
       <th>End address</th>
-      <th>Resa date</th>
       <th>Price</th>
       <th>Client</th>
       <th>Driver</th>
@@ -21,9 +20,8 @@
   <tbody>
     <% @courses.each do |course| %>
       <tr>
-        <td><%= course.start_eddress %></td>
+        <td><%= course.start_address %></td>
         <td><%= course.end_address %></td>
-        <td><%= course.resa_date %></td>
         <td><%= course.price %></td>
         <td><%= course.client_id %></td>
         <td><%= course.driver_id %></td>
