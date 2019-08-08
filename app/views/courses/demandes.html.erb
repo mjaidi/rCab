@@ -1,0 +1,28 @@
+<p id="notice"><%= notice %></p>
+
+<section id="course_card">
+  <div class="container">
+    <h4 class = "text-center">Demandes en cours</h4>
+    <div class="row">
+      <% @courses.each do |course| %>
+        <div class="col-12 col-md-4">
+          <div class="card">
+            <p>
+              <%= course.created_at.strftime('%d/%m/%y') %> - <%=course.created_at.strftime('%R') %>
+            </p>
+            <p>Départ : <%= course.start_address %></p>
+            <p>Arrivée : <%= course.end_address %></p>
+            <p>Prix : <%= course.price %></p>
+            <div class="flex-center" style="margin-top: 16px;">
+              <%= link_to "Select Course", select_course_path(course), class: "btn btn-lg btn-success btn-rCab" %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</section>
+
+<br>
+
+<%= link_to 'New Course', new_course_path %>
