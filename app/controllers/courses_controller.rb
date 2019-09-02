@@ -7,6 +7,10 @@ class CoursesController < ApplicationController
     @courses = policy_scope(Course).select{ |course| course.status == "search" }
   end
 
+  def dashboard
+    @courses = policy_scope(Course).reject{ |course| course.status == "search" }
+  end
+
   def client
     @markers = {
       start_address: { lat: @course.start_lat, lng: @course.start_lon },
