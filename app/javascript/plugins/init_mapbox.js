@@ -18,14 +18,15 @@ const initMapbox = () => {
     });
 
     const markers = JSON.parse(mapElement.dataset.markers);
-    new mapboxgl.Marker()
-      .setLngLat([ markers.start_address.lng, markers.start_address.lat ])
-      .addTo(map);
-    new mapboxgl.Marker()
-      .setLngLat([ markers.end_address.lng, markers.end_address.lat ])
-      .addTo(map);
-
-    fitMapToMarkers(map, markers);
+    if (markers) {
+      new mapboxgl.Marker()
+        .setLngLat([ markers.start_address.lng, markers.start_address.lat ])
+        .addTo(map);
+      new mapboxgl.Marker()
+        .setLngLat([ markers.end_address.lng, markers.end_address.lat ])
+        .addTo(map);
+      fitMapToMarkers(map, markers);
+    }
   }
 };
 

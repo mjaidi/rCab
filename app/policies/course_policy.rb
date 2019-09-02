@@ -2,21 +2,37 @@ class CoursePolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
       if user.admin
-        scope.all
+        scope.all.order(created_at: :desc)
       elsif user.driver
-        scope.where(driver: user)
+        scope.where(driver: user).order(created_at: :desc) + scope.where(status: 'search').order(created_at: :desc)
       else
-        scope.where(client: user)
+        scope.where(client: user).order(created_at: :desc)
       end
     end
   end
 
-  def show?
-    user.admin || record.client == user || record.driver == user
+  def client?
+    user.admin || record.client == user
+  end
+
+  def driver?
+    user.admin || record.driver == user
   end
 
   def new?
     user.admin || !user.driver
+  end
+
+  def select?
+    user.admin || user.driver
+  end
+
+  def start?
+    driver? && record.status = "accepted"
+  end
+
+  def end?
+    driver? && record.status = "arrived"
   end
 
   def edit?
@@ -31,7 +47,4 @@ class CoursePolicy < ApplicationPolicy
     edit?
   end
 
-  def destroy?
-    false
-  end
 end

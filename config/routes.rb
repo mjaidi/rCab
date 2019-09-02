@@ -1,5 +1,15 @@
 Rails.application.routes.draw do
-  resources :courses
   devise_for :users
   root to: 'pages#home'
+  resources :courses, except: [:show, :destroy, :index] do
+    member do
+      get 'client', to: 'courses#client', as: :client
+      get 'driver', to: 'courses#driver', as: :driver
+      get 'select', to: 'courses#select', as: :select
+      get 'start', to: 'courses#start', as: :start
+      get 'end', to: 'courses#end', as: :end
+    end
+  end
+  get 'demandes', to: 'courses#demandes', as: :demandes
+  get 'dashboard', to: 'courses#dashboard', as: :dashboard
 end

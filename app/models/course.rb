@@ -2,6 +2,10 @@ class Course < ApplicationRecord
   belongs_to :client, class_name: "User", foreign_key: :client_id
   belongs_to :driver, class_name: "User", foreign_key: :driver_id
 
+  STATUS = ['search', 'accepted', 'arrived', 'finished', 'rated', 'canceled']
+  validates :status, presence: true
+  validates :status, inclusion: {in: STATUS}
+
   before_save :geocode_endpoints
 
   private

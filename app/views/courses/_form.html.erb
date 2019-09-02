@@ -1,14 +1,31 @@
+<section id="login">
+  <div class="login-wrapper">
+    <%= simple_form_for(@course) do |f| %>
+      <%= f.error_notification %>
+      <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
-<%= simple_form_for(@course) do |f| %>
-  <%= f.error_notification %>
-  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+      <div class="form-inputs">
+        <div class="group">
+          <%= f.input :start_address,
+                      required: true,
+                      autofocus: true , wrapper: false, label: false %>
+          <span class="highlight"></span>
+          <span class="bar"></span>
+          <%= f.label :start_address, label: 'Départ', class: 'material' %>
+        </div>
+        <div class="group">
+          <%= f.input :end_address,
+                      required: true,
+                      autofocus: true , wrapper: false, label: false %>
+          <span class="highlight"></span>
+          <span class="bar"></span>
+          <%= f.label :end_address, label: 'Arrivée', class: 'material' %>
+        </div>
+      </div>
 
-  <div class="form-inputs">
-    <%= f.input :start_address %>
-    <%= f.input :end_address %>
+      <div class="form-actions flex-center">
+        <%= f.button :submit, "Calculer le prix", class: 'btn btn-lg btn-success btn-rCab' %>
+      </div>
+    <% end %>
   </div>
-
-  <div class="form-actions">
-    <%= f.button :submit %>
-  </div>
-<% end %>
+</section>
