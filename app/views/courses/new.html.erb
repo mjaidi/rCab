@@ -1,11 +1,19 @@
 <%= render 'form', course: @course %>
 
 <div
-  id="map"
+  id="map-dir"
   style="width: 100%;
-  height: 600px;"
+  height: 100vh;"
   data-markers="<%= @markers.to_json %>"
   data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
+  data-with-inputs='true'
 ></div>
 
-<%= link_to 'Back', courses_path %>
+<%#= link_to 'Back', courses_path %>
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary hidden" data-toggle="modal"  id='btnValidatePrice' data-target="#validatePrice" data-backdrop="static" data-keyboard="false">
+</button>
+
+<div id="modal-wrapper">
+
+</div>

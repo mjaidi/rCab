@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_03_152655) do
+ActiveRecord::Schema.define(version: 2019_09_03_082629) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,6 +30,8 @@ ActiveRecord::Schema.define(version: 2019_08_03_152655) do
     t.float "start_lon"
     t.float "end_lat"
     t.float "end_lon"
+    t.float "distance"
+    t.float "duration"
   end
 
   create_table "users", force: :cascade do |t|
