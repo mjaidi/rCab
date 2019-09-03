@@ -1,12 +1,14 @@
 class Course < ApplicationRecord
   belongs_to :client, class_name: "User", foreign_key: :client_id
-  belongs_to :driver, class_name: "User", foreign_key: :driver_id
+  belongs_to :driver, class_name: "User", foreign_key: :driver_id, optional: :true
 
-  STATUS = ['search', 'accepted', 'arrived', 'finished', 'rated', 'canceled']
+  STATUS = ['pending', 'search', 'accepted', 'arrived', 'finished', 'rated', 'canceled']
   validates :status, presence: true
   validates :status, inclusion: {in: STATUS}
 
   before_save :geocode_endpoints
+  validates_presence_of :start_address, :end_address
+
 
   private
 
@@ -31,7 +33,7 @@ class Course < ApplicationRecord
 end
 
 def calculate_price
-  self.duration * 0.1 + self.distance*0.2
+  (self.duration * 0.1 + self.distance*0.2).round(2)
 end
 
 def setTimeDuration

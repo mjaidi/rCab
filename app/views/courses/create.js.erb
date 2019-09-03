@@ -1,0 +1,6 @@
+function refreshForm(innerHTML) {
+  const newReviewForm = document.getElementById('modal-wrapper');
+  newReviewForm.innerHTML = innerHTML;
+}
+refreshForm('<%= j render "courses/modal", course: @course%>');
+document.getElementById('btnValidatePrice').click()

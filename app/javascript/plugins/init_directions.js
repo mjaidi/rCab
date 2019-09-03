@@ -12,7 +12,7 @@ const initMapboxDirections = () => {
       zoom: 6
     });
 
-    let directions = new MapboxDirections({
+    let options = {
       accessToken: mapboxgl.accessToken,
       unit: "metric",
       placeholderOrigin: "Choissisez un point de départ",
@@ -21,30 +21,60 @@ const initMapboxDirections = () => {
         instructions: false,
         profileSwitcher: false
       }
-    });
-    map.addControl(directions, "top-left");
+    };
 
-    let originValue = {};
-    let destinationValue = {};
-    let route = {};
-    directions.on("origin", e => {
-      const origin = document.querySelector(
-        "#mapbox-directions-origin-input input"
-      );
-      originValue = { name: origin.value };
-    });
-    directions.on("destination", e => {
-      const destination = document.querySelector(
-        "#mapbox-directions-destination-input input"
-      );
-      destinationValue = { name: destination.value };
-    });
-    directions.on("route", e => {
-      document.getElementById("course_start_address").value = originValue.name;
-      document.getElementById("course_end_address").value =
-        destinationValue.name;
-      document.getElementById("submit_new_course").classList.remove("hidden");
-    });
+    if (mapElement.dataset.withInputs === "true") {
+      let directions = new MapboxDirections(options);
+      map.addControl(directions, "top-left");
+      // const startAddress = document.querySelector("#course_start_address");
+      // startAddress.addEventListener("change", e => {
+      //   console.log(e);
+      //   directions.setOrigin(startAddress.value);
+      // });
+      // const endAddress = document.querySelector("#course_end_address");
+      // endAddress.addEventListener("change", e => {
+      //   console.log(e);
+      //   directions.setDestination(endAddress.value);
+      // });
+
+      let originValue = {};
+      let destinationValue = {};
+      let route = {};
+      directions.on("origin", e => {
+        const origin = document.querySelector(
+          "#mapbox-directions-origin-input input"
+        );
+        originValue = { name: origin.value };
+      });
+      directions.on("destination", e => {
+        const destination = document.querySelector(
+          "#mapbox-directions-destination-input input"
+        );
+        destinationValue = { name: destination.value };
+      });
+      directions.on("route", e => {
+        document.getElementById("course_start_address").value =
+          originValue.name;
+        document.getElementById("course_end_address").value =
+          destinationValue.name;
+        document.getElementById("submit_new_course").classList.remove("hidden");
+      });
+    } else {
+      const markers = JSON.parse(mapElement.dataset.markers);
+      options.controls.inputs = false;
+      let directions = new MapboxDirections(options);
+      map.addControl(directions, "top-left");
+      map.on("load", e => {
+        directions.setOrigin([
+          markers.start_address.lng,
+          markers.start_address.lat
+        ]);
+        directions.setDestination([
+          markers.end_address.lng,
+          markers.end_address.lat
+        ]);
+      });
+    }
   }
 };
 

@@ -1,0 +1,20 @@
+<!-- Modal -->
+<div class="modal fade" id="validatePrice" tabindex="-1" role="dialog" aria-labelledby="validatePriceLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="validatePriceLabel">Valider Course</h5>
+        <%= link_to course_path(course), method: 'delete', data: {dismiss: 'modal'}, class: 'close' do %>
+            <span aria-hidden="true">&times;</span>
+        <% end %>
+      </div>
+      <div class="modal-body">
+        Prix: <%= course.price %> DH
+      </div>
+      <div class="modal-footer">
+        <%= link_to 'Annuler', course_path(course), method: 'delete', class: 'btn btn-secondary' %>
+        <%= link_to 'Valider', set_price_course_path(course), method: 'patch', class: 'btn btn-success btn-rCab btn-rCab__sm' %>
+      </div>
+    </div>
+  </div>
+</div>

@@ -47,4 +47,11 @@ class CoursePolicy < ApplicationPolicy
     edit?
   end
 
+  def set_price?
+    new?
+  end
+
+  def destroy?
+    new?
+  end
 end

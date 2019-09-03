@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: 'pages#home'
-  resources :courses, except: [:show, :destroy, :index] do
+  resources :courses, except: [:show, :index] do
     member do
+      patch 'set_price', to: 'courses#set_price', as: :set_price
       get 'client', to: 'courses#client', as: :client
       get 'driver', to: 'courses#driver', as: :driver
       get 'select', to: 'courses#select', as: :select

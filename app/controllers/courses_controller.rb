@@ -1,7 +1,7 @@
 require 'date'
 
 class CoursesController < ApplicationController
-  before_action :set_course, only: [:client, :driver, :edit, :update, :select, :start, :end]
+  before_action :set_course, only: [:client, :driver, :edit, :update, :select, :start, :end, :set_price, :destroy]
 
   def demandes
     @courses = policy_scope(Course).select{ |course| course.status == "search" }
@@ -34,27 +34,27 @@ class CoursesController < ApplicationController
     @course.status = "accepted"
     @course.driver = current_user
     if @course.save
-      redirect_to driver_course_path(@course), notice: 'Course accepted.'
+      redirect_to driver_course_path(@course)
     else
-      redirect_to demandes_path , notice: 'Course not accepted.'
+      redirect_to demandes_path
     end
   end
 
   def start
     @course.status = "arrived"
     if @course.save
-      redirect_to driver_course_path(@course), notice: 'Course finished.'
+      redirect_to driver_course_path(@course)
     else
-      redirect_to driver_course_path(@course), notice:  'Course not finished.'
+      redirect_to driver_course_path(@course)
     end
   end
 
   def end
     @course.status = "finished"
     if @course.save
-      redirect_to driver_course_path(@course), notice: 'Course started.'
+      redirect_to driver_course_path(@course)
     else
-      redirect_to driver_course_path(@course), notice:  'Course not started.'
+      redirect_to driver_course_path(@course)
     end
   end
 
@@ -65,21 +65,39 @@ class CoursesController < ApplicationController
     @course = Course.new(course_params)
     authorize @course
     @course.client = current_user
-    @course.driver = User.first
-    @course.status = "search"
+    @course.status = "pending"
     if @course.save
-      redirect_to client_course_path(@course), notice: 'Course was successfully created.'
+      respond_to do |format|
+        format.html {
+          @course.status = 'search'
+          @course.save
+          redirect_to client_course_path(@course)
+        }
+        format.js
+      end
     else
+      flash.now[:alert] = @course.errors.full_messages
       render :new
     end
   end
 
+  def set_price
+    @course.status = 'search'
+    @course.save
+    redirect_to client_course_path(@course)
+  end
+
   def update
     if @course.update(course_params)
-      redirect_to @course, notice: 'Course was successfully updated.'
+      redirect_to @course
     else
       render :edit
     end
+  end
+
+  def destroy
+    @course.destroy
+    redirect_to new_course_path
   end
 
   private
@@ -89,6 +107,6 @@ class CoursesController < ApplicationController
     end
 
     def course_params
-      params.require(:course).permit(:start_address, :end_address, :start_lat, :start_lon, :end_lat, :end_lon, :distance, :duration)
+      params.require(:course).permit(:start_address, :end_address)
     end
 end

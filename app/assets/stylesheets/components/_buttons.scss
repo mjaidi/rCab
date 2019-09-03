@@ -6,4 +6,7 @@
     &:hover {
         background: darken($green, 10%)
     }
+    &__sm {
+        padding: 0.5rem 1.5rem;
+    }
 }
