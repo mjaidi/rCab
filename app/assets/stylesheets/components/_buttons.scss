@@ -1,8 +1,9 @@
 .btn-rCab {
-  border-radius: 2rem;
-  padding: 1rem 2rem;
-  box-shadow: 1px 1px 5px rgba(0,0,0,0.5);
-  &:hover {
-    background: darken($green, 10%)
-  }
+    border-radius: 2rem;
+    padding: 1rem 2rem;
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+    color: white;
+    &:hover {
+        background: darken($green, 10%)
+    }
 }

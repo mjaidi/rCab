@@ -1,0 +1,17 @@
+  .mapboxgl-ctrl-directions {
+      width: 95% !important;
+      min-width: 300px !important;
+      max-width: 700px !important;
+  }
+  
+  .mapboxgl-ctrl-top-left {
+      width: 100%
+  }
+  
+  #submit_new_course {
+      position: absolute;
+      top: 150px;
+      z-index: 2;
+      width: 200px;
+      right: calc(50% - 100px);
+  }

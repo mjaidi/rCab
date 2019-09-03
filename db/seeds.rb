@@ -16,5 +16,5 @@ client = User.create(first_name: 'Ayoub', last_name: 'Karioun', phone: '06610602
 
 puts 'creating courses'
 Course.create(start_address: '18 rue miollis 75015', end_address: '11 rue de Javel 75015', price: 10, client: client, driver: fake_driver, status: "search")
-Course.create(start_address: '18 rue miollis 75015', end_address: '82 rue de Lauriston 75116', price: 15, client: client, driver: fake_driver, status: "search")
+Course.create(start_address: '18 rue miollis 75015', end_address: '11 rue de Javel 75015', price: 15, client: User.first, driver: User.last, status: "search")
 

@@ -64,7 +64,6 @@ class CoursesController < ApplicationController
   def create
     @course = Course.new(course_params)
     authorize @course
-    @course.price = calculate_price
     @course.client = current_user
     @course.driver = User.first
     @course.status = "search"
@@ -90,10 +89,6 @@ class CoursesController < ApplicationController
     end
 
     def course_params
-      params.require(:course).permit(:start_address, :end_address)
-    end
-
-    def calculate_price
-      10
+      params.require(:course).permit(:start_address, :end_address, :start_lat, :start_lon, :end_lat, :end_lon, :distance, :duration)
     end
 end
