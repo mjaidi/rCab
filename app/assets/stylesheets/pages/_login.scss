@@ -1,128 +1,197 @@
 #login {
-  padding: 1rem;
-  max-width: 600px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 0 auto;
-  .login-wrapper {
-    padding: 2rem 3rem;
-    width: 100%;
-    h2 {
-      font-weight: bold;
-      text-align: center;
-      margin-bottom: 3rem;
+    padding: 1rem;
+    max-width: 600px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    .login-wrapper {
+        padding: 2rem 3rem;
+        width: 100%;
+        h2 {
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 3rem;
+        }
     }
-
-  }
 }
+
+.photos-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 5rem;
+}
+
 
 /* ------- Material Design Styling ---------- */
-.group        {
-  position:relative;
-  margin-bottom:45px;
+
+.group {
+    position: relative;
+    margin-bottom: 45px;
 }
-input.form-control         {
-  font-size:18px;
-  padding:10px 10px 10px 5px;
-  display:block;
-  width: 100%;
-  border:none;
-  border-bottom:1px solid $green;
+
+input.form-control,
+textarea.form-control {
+    font-size: 18px;
+    padding: 10px 10px 10px 5px;
+    display: block;
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid $green;
 }
-input.form-control:focus     { outline:none; box-shadow: none; }
+
+input.form-control:focus,
+textarea.form-control:focus {
+    outline: none;
+    box-shadow: none !important;
+}
+
 .form-control.is-invalid:focus {
-  border-color: #FD1015;
+    border-color: #FD1015;
 }
+
 
 /* LABEL ======================================= */
-label.material          {
-  color:#999;
-  font-size:18px;
-  font-weight:normal;
-  position:absolute;
-  pointer-events:none;
-  left:5px;
-  top:10px;
-  transition:0.2s ease all;
-  -moz-transition:0.2s ease all;
-  -webkit-transition:0.2s ease all;
+
+label.material {
+    color: #999;
+    font-size: 18px;
+    font-weight: normal;
+    position: absolute;
+    pointer-events: none;
+    left: 5px;
+    top: 10px;
+    transition: 0.2s ease all;
+    -moz-transition: 0.2s ease all;
+    -webkit-transition: 0.2s ease all;
 }
 
+
 /* active state */
-input.form-control:focus ~ label, input.form-control:valid ~ label    {
-  top:-20px;
-  font-size:14px;
-  color: $green;
+
+input.form-control:focus~label,
+input.form-control:valid~label,
+textarea.form-control:focus~label,
+textarea.form-control:valid~label {
+    top: -20px;
+    font-size: 14px;
+    color: $green;
 }
 
 .form-control.is-invalid:focus {
     border-color: #FD1015;
     box-shadow: none;
-  }
-.form-control.is-invalid:focus ~ label    {
-  color: #FD1015;
+}
+
+.form-control.is-invalid:focus~label {
+    color: #FD1015;
 }
 
 
 /* BOTTOM BARS ================================= */
-.bar  { position:relative; display:block; width: 100% }
-.bar:before, .bar:after   {
-  content:'';
-  height:2px;
-  width:0;
-  bottom:1px;
-  position:absolute;
-  background:$green;
-  transition:0.2s ease all;
-  -moz-transition:0.2s ease all;
-  -webkit-transition:0.2s ease all;
+
+.bar {
+    position: relative;
+    display: block;
+    width: 100%
 }
-.bar:before {
-  left:50%;
-}
+
+.bar:before,
 .bar:after {
-  right:50%;
+    content: '';
+    height: 2px;
+    width: 0;
+    bottom: 1px;
+    position: absolute;
+    background: $green;
+    transition: 0.2s ease all;
+    -moz-transition: 0.2s ease all;
+    -webkit-transition: 0.2s ease all;
 }
+
+.bar:before {
+    left: 50%;
+}
+
+.bar:after {
+    right: 50%;
+}
+
 
 /* active state */
-input.form-control:focus ~ .bar:before, input.form-control:focus ~ .bar:after {
-  width:50%;
+
+input.form-control:focus~.bar:before,
+input.form-control:focus~.bar:after,
+textarea.form-control:focus~.bar:before,
+textarea.form-control:focus~.bar:after {
+    width: 50%;
 }
 
-input.form-control.is-invalid:focus ~ .bar:before, input.form-control.is-invalid:focus ~ .bar:after {
-  width:0%;
+input.form-control.is-invalid:focus~.bar:before,
+input.form-control.is-invalid:focus~.bar:after,
+textarea.form-control.is-invalid:focus~.bar:before,
+textarea.form-control.is-invalid:focus~.bar:after {
+    width: 0%;
 }
+
 
 /* HIGHLIGHTER ================================== */
+
 .highlight {
-  position:absolute;
-  height:60%;
-  width:100px;
-  top:25%;
-  left:0;
-  pointer-events:none;
-  opacity:0.5;
+    position: absolute;
+    height: 60%;
+    width: 100px;
+    top: 25%;
+    left: 0;
+    pointer-events: none;
+    opacity: 0.5;
 }
 
+
 /* active state */
-input.form-control:focus ~ .highlight {
-  -webkit-animation:inputHighlighter 0.3s ease;
-  -moz-animation:inputHighlighter 0.3s ease;
-  animation:inputHighlighter 0.3s ease;
+
+input.form-control:focus~.highlight,
+textarea.form-control:focus~.highlight {
+    -webkit-animation: inputHighlighter 0.3s ease;
+    -moz-animation: inputHighlighter 0.3s ease;
+    animation: inputHighlighter 0.3s ease;
 }
 
 
 /* ANIMATIONS ================ */
+
 @-webkit-keyframes inputHighlighter {
-  from { background:$green; }
-  to  { width:0; background:transparent; }
+    from {
+        background: $green;
+    }
+    to {
+        width: 0;
+        background: transparent;
+    }
 }
+
 @-moz-keyframes inputHighlighter {
-  from { background:$green; }
-  to  { width:0; background:transparent; }
+    from {
+        background: $green;
+    }
+    to {
+        width: 0;
+        background: transparent;
+    }
 }
+
 @keyframes inputHighlighter {
-  from { background:$green; }
-  to  { width:0; background:transparent; }
+    from {
+        background: $green;
+    }
+    to {
+        width: 0;
+        background: transparent;
+    }
+}
+
+.material__textarea {
+    height: 150px;
 }

@@ -8,6 +8,27 @@
       width: 100%
   }
   
+  .directions-icon-depart {
+      background-color: $green;
+  }
+  
+  .directions-icon-arrive {
+      background-color: $blue;
+  }
+  
+  #map-dir {
+      position: relative;
+  }
+  
+  #current-position {
+      position: absolute;
+      top: 20px;
+      right: 5%;
+      z-index: 10;
+      color: green;
+      font-size: 20px;
+  }
+  
   #submit_new_course {
       position: absolute;
       top: 150px;

@@ -4,6 +4,9 @@ import "@mapbox/mapbox-gl-directions/dist/mapbox-gl-directions.css";
 // import { initMapbox } from "../plugins/init_mapbox";
 // import { initAutocomplete } from "../plugins/init_autocomplete";
 import initMapboxDirections from "../plugins/init_directions";
+import "../cable/course";
+import "../plugins/rating";
+import "../plugins/input_file";
 
 // initMapbox();
 // initAutocomplete();

@@ -2,12 +2,11 @@
 @import "config/fonts";
 @import "config/colors";
 @import "config/bootstrap_variables";
-
 // External libraries
 @import "bootstrap/scss/bootstrap";
 @import "font-awesome-sprockets";
 @import "font-awesome";
-
+@import "rateyo/min/jquery.rateyo.min";
 // Your CSS partials
 @import "config/global_classes";
 @import "components/index";
