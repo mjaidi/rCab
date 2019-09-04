@@ -8,6 +8,14 @@
       width: 100%
   }
   
+  .directions-icon-depart {
+      background-color: $green;
+  }
+  
+  .directions-icon-arrive {
+      background-color: $blue;
+  }
+  
   #submit_new_course {
       position: absolute;
       top: 150px;

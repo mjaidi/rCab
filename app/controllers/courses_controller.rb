@@ -35,6 +35,10 @@ class CoursesController < ApplicationController
     @course.driver = current_user
     if @course.save
       redirect_to driver_course_path(@course)
+      ActionCable.server.broadcast "course_channel_#{@course.id}",
+                                   driver_status:  render_driver_status(@course),
+                                   client_status:  render_client_status(@course),
+                                   id: @course.id
     else
       redirect_to demandes_path
     end
@@ -43,18 +47,20 @@ class CoursesController < ApplicationController
   def start
     @course.status = "arrived"
     if @course.save
-      redirect_to driver_course_path(@course)
-    else
-      redirect_to driver_course_path(@course)
+      ActionCable.server.broadcast "course_channel_#{@course.id}",
+          driver_status:  render_driver_status(@course),
+          client_status:  render_client_status(@course),
+          id: @course.id
     end
   end
 
   def end
     @course.status = "finished"
     if @course.save
-      redirect_to driver_course_path(@course)
-    else
-      redirect_to driver_course_path(@course)
+      ActionCable.server.broadcast "course_channel_#{@course.id}",
+                                   driver_status:  render_driver_status(@course),
+                                   client_status:  render_client_status(@course),
+                                   id: @course.id
     end
   end
 
@@ -89,9 +95,7 @@ class CoursesController < ApplicationController
 
   def update
     if @course.update(course_params)
-      redirect_to @course
-    else
-      render :edit
+      redirect_to dashboard_path
     end
   end
 
@@ -107,6 +111,14 @@ class CoursesController < ApplicationController
     end
 
     def course_params
-      params.require(:course).permit(:start_address, :end_address)
+      params.require(:course).permit(:start_address, :end_address, :start_lat, :start_lon, :end_lat, :end_lon, :note, :comment)
+    end
+
+    def render_driver_status(course)
+      render_to_string(partial: 'driver_status', locals: { course: course })
+    end
+
+    def render_client_status(course)
+      render_to_string(partial: 'client_status', locals: { course: course })
     end
 end

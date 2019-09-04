@@ -22,40 +22,9 @@
         </div>
       </div>
     </div>
-    <% if @course.status == 'accepted' %>
-    <div class="row">
-      <div class="col-12 col-md-4-offset">
-        <div class=" flex-center btn btn-lg btn-status">
-          En route vers le client
-        </div>
-      </div>
+    <div id="course-status" data-id="<%= @course.id%>" data-user='driver'>
+      <%= render 'driver_status', course: @course %>
     </div>
-    <div class="row">
-      <div class="col-12 col-md-4-offset">
-        <div class="flex-center mt-5">
-          <%= link_to "Arrivé chez le client", start_course_path(@course), class: "btn btn-lg btn-success btn-rCab" %>
-        </div>
-      </div>
-    </div>
-    <% end %>
-    <% if @course.status == 'arrived' %>
-    <div class="row">
-      <div class="col-12 col-md-4-offset">
-        <div class="flex-center mt-5">
-          <%= link_to "Course terminée", end_course_path(@course), class: "btn btn-lg btn-success btn-rCab" %>
-        </div>
-      </div>
-    </div>
-    <% end %>
-    <% if @course.status == 'finished' %>
-    <div class="row">
-      <div class="col-12 col-md-4-offset">
-        <div class=" flex-center btn btn-lg btn-status">
-          Course Terminé
-        </div>
-      </div>
-    </div>
-    <% end %>
   </div>
 </section>
 

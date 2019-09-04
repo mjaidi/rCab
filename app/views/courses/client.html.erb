@@ -1,60 +1,6 @@
 <section id="driver_card">
-  <div class="container">
-    <div class="row">
-      <div class="col-12 col-md-4-offset">
-        <% if @course.status != 'search'%>
-          <div class="card">
-            <% if @course.driver.photo.blank? %>
-              <img src="https://hadeplatform.com/img/default.png" class="avatar-large-bordered">
-            <% else %>
-              <%= cl_image_tag @course.driver.photo, width: 40, height: 40, crop: :thumb, gravity: :face, class: "avatar-large-bordered" %>
-            <% end %>
-            <div class="driver-info">
-              <% if @course.driver.id == 1 %>
-                <h4>Votre chauffeur</h4>
-                <p>Nous recherchons un chauffeur disponible</p>
-              <% else %>
-                <h4>Votre chauffeur</h4>
-                <p>Nom : <%= @course.driver.first_name %> <%= @course.driver.last_name %></p>
-                <p>Tél : <%= @course.driver.phone %></p>
-                <p>ID : <%= @course.driver.id %></p>
-              <% end %>
-            </div>
-            <div class="course-info">
-              <h4>Votre course</h4>
-              <p>Départ : <%= @course.start_address %></p>
-              <p>Arrivée : <%= @course.end_address %></p>
-              <p>Prix : <%= @course.price %></p>
-            </div>
-          </div>
-        <% else %>
-        <div class=" flex-center btn btn-lg btn-success btn-status btn-status-active">
-          Nous cherchons un chauffeur
-        </div>
-        <% end %>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-12 col-md-4-offset">
-        <div class=" flex-center btn btn-lg btn-success btn-status <%= 'btn-status-active' if @course.status == 'accepted'%>">
-          Votre chauffeur est en route
-        </div>
-        </div>
-      </div>
-    <div class="row">
-      <div class="col-12 col-md-4-offset">
-        <div class=" flex-center btn btn-lg btn-success btn-status <%= 'btn-status-active' if @course.status == 'arrived'%>"">
-          Votre chauffeur est arrivée
-        </div>
-        </div>
-      </div>
-    <div class="row">
-      <div class="col-12 col-md-4-offset">
-        <div class=" flex-center btn btn-lg btn-success btn-status <%= 'btn-status-active' if @course.status == 'finished'%>"">
-          Votre course est terminée
-        </div>
-      </div>
-    </div>
+  <div class="container" id='course-status' data-id="<%= @course.id%>" data-user='client'>
+    <%= render 'client_status', course: @course %>
   </div>
 </section>
 

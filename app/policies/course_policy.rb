@@ -35,16 +35,12 @@ class CoursePolicy < ApplicationPolicy
     driver? && record.status = "arrived"
   end
 
-  def edit?
-    user.admin
-  end
-
   def create?
     new?
   end
 
   def update?
-    edit?
+    new?
   end
 
   def set_price?
