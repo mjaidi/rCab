@@ -42,10 +42,16 @@ const initMapboxDirections = () => {
           lng: e.feature.geometry.coordinates[0]
         };
       });
+
       if ("geolocation" in navigator) {
-        navigator.geolocation.getCurrentPosition(p => {
-          directions.setOrigin([p.coords.longitude, p.coords.latitude]);
-        });
+        document
+          .getElementById("current-position")
+          .addEventListener("click", e => {
+            navigator.geolocation.getCurrentPosition(p => {
+              directions.setOrigin([p.coords.longitude, p.coords.latitude]);
+            });
+            document.getElementById("current-position").classList.add("hidden");
+          });
       }
 
       directions.on("destination", e => {
