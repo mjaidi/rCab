@@ -2,7 +2,9 @@
   <div class="banner-wrapper">
     <h1>rCab Header text</h1>
     <h4>Lorem ipsum some call to action on this line more text</h4>
-    <%= link_to 'Book now!', new_course_path, class: 'btn btn-success btn-lg btn-rCab' %>
+    <% if !user_signed_in? || policy(Course).new? %>
+      <%= link_to 'Voyagez maintenant!', new_course_path, class: 'btn btn-success btn-lg btn-rCab' %>
+    <% end %>
   </div>
 </section>
 

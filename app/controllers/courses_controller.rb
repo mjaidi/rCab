@@ -11,6 +11,11 @@ class CoursesController < ApplicationController
     @courses = policy_scope(Course).reject{ |course| course.status == "search" }
   end
 
+  def driver_dashboard
+    @courses = policy_scope(Course).reject{ |course| course.status == "search" }
+    @total_courses = @courses.map{|c| c.price}.compact.sum.round(2)
+  end
+
   def client
     @markers = {
       start_address: { lat: @course.start_lat, lng: @course.start_lon },

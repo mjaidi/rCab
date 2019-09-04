@@ -6,6 +6,7 @@ import "@mapbox/mapbox-gl-directions/dist/mapbox-gl-directions.css";
 import initMapboxDirections from "../plugins/init_directions";
 import "../cable/course";
 import "../plugins/rating";
+import "../plugins/input_file";
 
 // initMapbox();
 // initAutocomplete();

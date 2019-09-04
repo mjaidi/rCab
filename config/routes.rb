@@ -13,4 +13,5 @@ Rails.application.routes.draw do
   end
   get 'demandes', to: 'courses#demandes', as: :demandes
   get 'dashboard', to: 'courses#dashboard', as: :dashboard
+  get 'driver_dashboard', to: 'courses#driver_dashboard', as: :driver_dashboard
 end
