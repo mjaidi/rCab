@@ -8,8 +8,9 @@
             <span aria-hidden="true">&times;</span>
         <% end %>
       </div>
-      <div class="modal-body">
-        Prix: <%= course.price %> DH
+      <div class="modal-body text-center">
+        <h5>Prix</h5>
+        <p><%= course.price %> DH</p>
       </div>
       <div class="modal-footer">
         <%= link_to 'Annuler', course_path(course), method: 'delete', class: 'btn btn-secondary' %>
