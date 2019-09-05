@@ -5,14 +5,14 @@
       <% @courses.each do |course| %>
         <div class="col-12 col-md-4">
           <div class="card">
-            <p>
-              <%= course.created_at.strftime('%d/%m/%y') %> - <%=course.created_at.strftime('%R') %>
-            </p>
-            <p>Départ : <%= course.start_address %></p>
-            <p>Arrivée : <%= course.end_address %></p>
-            <p>Prix : <%= course.price %></p>
+            <h6>
+              <strong><%= course.created_at.strftime('%d/%m/%y') %> - <%=course.created_at.strftime('%R') %></strong>
+            </h6>
+            <%= card_content_p('Départ :', course.start_address) %>
+            <%= card_content_p('Arrivé :', course.end_address) %>
+            <%= card_content_p('Prix :', course.price) %>
             <div class="flex-center" style="margin-top: 16px;">
-              <%= link_to "Select Course", select_course_path(course), class: "btn btn-lg btn-success btn-rCab"%>
+              <%= link_to "Accépter Course", select_course_path(course), class: "btn btn-lg btn-success btn-rCab btn-rCab__sm"%>
             </div>
           </div>
         </div>

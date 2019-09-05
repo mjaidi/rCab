@@ -1,78 +1,79 @@
-    <div class="row">
-      <div class="col-12 col-md-4-offset">
-        <% if course.status != 'search'%>
-          <div class="card">
-            <% if course.driver.photo.blank? %>
-              <img src="https://hadeplatform.com/img/default.png" class="avatar-large-bordered">
-            <% else %>
-              <%= cl_image_tag course.driver.photo, width: 40, height: 40, crop: :thumb, gravity: :face, class: "avatar-large-bordered" %>
-            <% end %>
-            <div class="driver-info">
-              <% if course.driver.id == 1 %>
-                <h4>Votre chauffeur</h4>
-                <p>Nous recherchons un chauffeur disponible</p>
-              <% else %>
-                <h4>Votre chauffeur</h4>
-                <p>Nom : <%= course.driver.first_name %> <%= course.driver.last_name %></p>
-                <p>Tél : <%= course.driver.phone %></p>
-                <p>ID : <%= course.driver.id %></p>
-              <% end %>
-            </div>
-            <div class="course-info">
-              <h4>Votre course</h4>
-              <p>Départ : <%= course.start_address %></p>
-              <p>Arrivée : <%= course.end_address %></p>
-              <p>Prix : <%= course.price %></p>
-            </div>
-          </div>
-        <% else %>
-        <div class=" flex-center btn btn-lg btn-success btn-status btn-status-active">
-          Nous cherchons un chauffeur
-        </div>
-        <% end %>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-12 col-md-4-offset">
-        <div class=" flex-center btn btn-lg btn-success btn-status <%= 'btn-status-active' if course.status == 'accepted'%>">
-          Votre chauffeur est en route
-        </div>
-        </div>
-      </div>
-    <div class="row">
-      <div class="col-12 col-md-4-offset">
-        <div class=" flex-center btn btn-lg btn-success btn-status <%= 'btn-status-active' if course.status == 'arrived'%>"">
-          Votre chauffeur est arrivée
-        </div>
-        </div>
-      </div>
-    <div class="row">
-      <div class="col-12 col-md-4-offset">
-        <div class=" flex-center btn btn-lg btn-success btn-status <%= 'btn-status-active' if course.status == 'finished'%>"">
-          Votre course est terminée
-        </div>
-        <% if course.status == 'finished' %>
-        <div id="notes" class='my-5'>
-          <div id="note<%=course.note%>">
-          <%= simple_form_for course, url: course_path(course), authenticity_token: false do |f| %>
-          <input type="hidden" name="authenticity_token" id="authenticity_token" value="<%= form_authenticity_token()%>" />
-              <h5 class='home-title'>Noter votre course</h5>
-              <div class="my-5 flex-center">
-                 <div id='rating-note'></div>
-              </div>
-              <%= f.input :note,  as: :hidden, collection: Course::NOTES  %>
-              <div class="group">
-                <%= f.input :comment, input_html: {class: 'material__textarea'}, label: false, autofocus: true , wrapper: false  %>
-                <span class="highlight"></span>
-                <span class="bar"></span>
-                <%= f.label :commennt, label: 'Commentaire', class: 'material' %>
-              </div>
-              <%= f.button :submit, class: 'btn btn-success  btn-block btn-rCab  btn-rCab__sm', value: "Commentez"%>
+<div class="row">
+  <div class="col-12 col-md-4-offset">
+    <% if course.status != 'search'%>
+      <div class="card">
+        <div class="flex-center">
+          <% if course.driver.photo.blank? %>
+            <img src="https://hadeplatform.com/img/default.png" class="avatar-large-bordered">
+          <% else %>
+            <%= cl_image_tag course.driver.photo, width: 40, height: 40, crop: :thumb, gravity: :face, class: "avatar-large-bordered" %>
           <% end %>
-          </div>
         </div>
-        <% end %>
-
-
+        <div class="driver-info">
+            <h4>Votre chauffeur</h4>
+            <%= card_content_p('Nom :', "#{@course.driver.first_name} #{@course.driver.last_name}") %>
+            <%= card_content_p('Tel :', @course.driver.phone) %>
+            <%= card_content_p('ID :', @course.driver.id) %>
+             <div class="flex-center">
+                <div class="course-note" data-note='<%=@course.driver.average_note%>'></div>
+              </div>
+        </div>
+        <div class="course-info">
+          <h4>Votre course</h4>
+          <%= card_content_p('Départ :', @course.start_address) %>
+          <%= card_content_p('Arrivée :', @course.end_address) %>
+          <%= card_content_p('Durée Estimé :', "#{@course.duration.round} minutes") %>
+          <%= card_content_p('Prix :', @course.price) %>
+        </div>
+      </div>
+    <% else %>
+    <div class=" flex-center btn btn-lg btn-success btn-status btn-status-active">
+      Nous cherchons un chauffeur
+    </div>
+    <% end %>
+  </div>
+</div>
+<div class="row">
+  <div class="col-12 col-md-4-offset">
+    <div class=" flex-center btn btn-lg btn-success btn-status <%= 'btn-status-active' if course.status == 'accepted'%>">
+      Votre chauffeur est en route
+    </div>
+    </div>
+  </div>
+<div class="row">
+  <div class="col-12 col-md-4-offset">
+    <div class=" flex-center btn btn-lg btn-success btn-status <%= 'btn-status-active' if course.status == 'arrived'%>"">
+      Votre chauffeur est arrivée
+    </div>
+    </div>
+  </div>
+<div class="row">
+  <div class="col-12 col-md-4-offset">
+    <div class=" flex-center btn btn-lg btn-success btn-status <%= 'btn-status-active' if course.status == 'finished'%>"">
+      Votre course est terminée
+    </div>
+    <% if course.status == 'finished' %>
+    <div id="notes" class='my-5'>
+      <div id="note<%=course.note%>">
+      <%= simple_form_for course, url: course_path(course), authenticity_token: false do |f| %>
+      <input type="hidden" name="authenticity_token" id="authenticity_token" value="<%= form_authenticity_token()%>" />
+          <h5 class='home-title'>Noter votre course</h5>
+          <div class="my-5 flex-center">
+              <div id='rating-note'></div>
+          </div>
+          <%= f.input :note,  as: :hidden, collection: Course::NOTES  %>
+          <div class="group">
+            <%= f.input :comment, input_html: {class: 'material__textarea'}, label: false, autofocus: true , wrapper: false  %>
+            <span class="highlight"></span>
+            <span class="bar"></span>
+            <%= f.label :commennt, label: 'Commentaire', class: 'material' %>
+          </div>
+          <%= f.button :submit, class: 'btn btn-success  btn-block btn-rCab  btn-rCab__sm', value: "Commentez"%>
+      <% end %>
       </div>
     </div>
+    <% end %>
+
+
+  </div>
+</div>

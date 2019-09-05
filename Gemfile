@@ -21,6 +21,10 @@ gem 'carrierwave', '~> 1.2'
 gem 'geocoder'
 gem 'faraday'
 
+gem 'activeadmin', github: 'activeadmin/activeadmin'
+gem 'inherited_resources', github: 'activeadmin/inherited_resources'
+gem 'arctic_admin'
+
 group :development do
   gem 'web-console', '>= 3.3.0'
 end
