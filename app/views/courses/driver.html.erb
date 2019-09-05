@@ -3,21 +3,24 @@
     <div class="row">
       <div class="col-12 col-md-4-offset">
         <div class="card">
-          <% if @course.client.photo.blank? %>
-            <img src="https://hadeplatform.com/img/default.png" class="avatar-large-bordered">
-          <% else %>
-            <%= cl_image_tag @course.client.photo, width: 40, height: 40, crop: :thumb, gravity: :face, class: "avatar-large-bordered" %>
-          <% end %>
+          <div class="flex-center">
+            <% if @course.client.photo.blank? %>
+              <img src="https://hadeplatform.com/img/default.png" class="avatar-large-bordered">
+            <% else %>
+              <%= cl_image_tag @course.client.photo, width: 40, height: 40, crop: :thumb, gravity: :face, class: "avatar-large-bordered" %>
+            <% end %>
+          </div>
           <div class="driver-info">
             <h4>Votre Client</h4>
-            <p>Nom : <%= @course.client.first_name %> <%= @course.client.last_name %></p>
-            <p>Tél : <%= @course.client.phone %></p>
+            <%= card_content_p('Nom :', "#{@course.client.first_name} #{@course.client.last_name}") %>
+            <%= card_content_p('Tel :', @course.client.phone) %>
           </div>
           <div class="course-info">
             <h4>Votre course</h4>
-            <p>Départ : <%= @course.start_address %></p>
-            <p>Arrivée : <%= @course.end_address %></p>
-            <p>Prix : <%= @course.price %></p>
+            <%= card_content_p('Départ :', @course.start_address) %>
+            <%= card_content_p('Arrivée :', @course.end_address) %>
+            <%= card_content_p('Durée Estimé :', "#{@course.duration.round} minutes") %>
+            <%= card_content_p('Prix :', @course.price) %>
           </div>
         </div>
       </div>

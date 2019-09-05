@@ -10,9 +10,11 @@ if (main) {
           main.innerHTML = driver_status;
         } else if (main.dataset.user === "client") {
           main.innerHTML = client_status;
-          const token = document.getElementsByName("csrf-token")[0].content;
-          document.getElementById("authenticity_token").value = token;
-          document.rateNote("#rating-note", "#course_note");
+          if (document.getElementById("authenticity_token")) {
+            const token = document.getElementsByName("csrf-token")[0].content;
+            document.getElementById("authenticity_token").value = token;
+            document.rateNote("#rating-note", "#course_note");
+          }
         }
       }
     }

@@ -10,12 +10,17 @@
       <% @courses.each do |course| %>
         <div class="col-12 col-md-4">
           <div class="card">
-            <p>
+            <h6>
               <%= course.created_at.strftime('%d/%m/%y') %> - <%=course.created_at.strftime('%R') %>
-            </p>
-            <p>Départ : <%= course.start_address %></p>
-            <p>Arrivée : <%= course.end_address %></p>
-            <p>Prix : <%= course.price %></p>
+            </h6>
+            <%= card_content_p('Départ :', course.start_address) %>
+            <%= card_content_p('Arrivé :', course.end_address) %>
+            <%= card_content_p('Prix :', course.price) %>
+            <% unless course.note.nil? %>
+              <div class="flex-center">
+                <div class="course-note" data-note='<%=course.note%>'></div>
+              </div>
+            <% end %>
           </div>
         </div>
       <% end %>
