@@ -19,4 +19,8 @@ class User < ApplicationRecord
    false
   end
 
+  def average_note
+    Course.where(driver: self).where.not(note: nil).average(:note)
+  end
+
 end

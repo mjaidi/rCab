@@ -14,6 +14,9 @@
             <%= card_content_p('Nom :', "#{@course.driver.first_name} #{@course.driver.last_name}") %>
             <%= card_content_p('Tel :', @course.driver.phone) %>
             <%= card_content_p('ID :', @course.driver.id) %>
+             <div class="flex-center">
+                <div class="course-note" data-note='<%=@course.driver.average_note%>'></div>
+              </div>
         </div>
         <div class="course-info">
           <h4>Votre course</h4>

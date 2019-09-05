@@ -15,6 +15,8 @@ if (main) {
             document.getElementById("authenticity_token").value = token;
             document.rateNote("#rating-note", "#course_note");
           }
+          const avg = document.querySelector(".course-note");
+          document.staticRating(avg, parseFloat(avg.dataset.note));
         }
       }
     }
