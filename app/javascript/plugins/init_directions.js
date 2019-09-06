@@ -19,7 +19,6 @@ const initMapboxDirections = () => {
       accessToken: mapboxgl.accessToken,
       styles: style,
       unit: "metric",
-      interactive: false,
       placeholderOrigin: "Choissisez un point de départ",
       placeholderDestination: "Choissisez un point d'arriver",
       controls: {
@@ -70,9 +69,17 @@ const initMapboxDirections = () => {
         const origin = document.querySelector(
           "#mapbox-directions-origin-input input"
         );
+        let name = origin.value;
+        if (
+          origin.value.match(
+            /^([-+]?)([\d]{1,2})(((\.)(\d+)(,)))(\s*)(([-+]?)([\d]{1,3})((\.)(\d+))?)$/g
+          )
+        ) {
+          name = `localitation départ au : ${origin.value}`;
+        }
         document.getElementById("current-position").classList.add("hidden");
         originValue = {
-          name: origin.value,
+          name: name,
           lat: e.feature.geometry.coordinates[1],
           lng: e.feature.geometry.coordinates[0]
         };
@@ -83,8 +90,16 @@ const initMapboxDirections = () => {
         const destination = document.querySelector(
           "#mapbox-directions-destination-input input"
         );
+        let name = destination.value;
+        if (
+          destination.value.match(
+            /^([-+]?)([\d]{1,2})(((\.)(\d+)(,)))(\s*)(([-+]?)([\d]{1,3})((\.)(\d+))?)$/g
+          )
+        ) {
+          name = `localitation arrivé au : ${destination.value}`;
+        }
         destinationValue = {
-          name: destination.value,
+          name: name,
           lat: e.feature.geometry.coordinates[1],
           lng: e.feature.geometry.coordinates[0]
         };
@@ -106,6 +121,7 @@ const initMapboxDirections = () => {
       // on views without the form initiaize mapbox directions with markers and route but without input boxes
       const markers = JSON.parse(mapElement.dataset.markers);
       options.controls.inputs = false;
+      options.interactive = false;
       let directions = new MapboxDirections(options);
       map.addControl(directions, "top-left");
       map.on("load", e => {

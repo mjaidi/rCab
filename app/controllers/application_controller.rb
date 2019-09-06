@@ -17,7 +17,7 @@ class ApplicationController < ActionController::Base
 
   # Devise Signup parameters update
   def configure_permitted_parameters
-    added_attrs = [:email, :password, :password_confirmation, :remember_me, :first_name, :last_name, :phone, :verified_whatsapp, :admin, :driver, :photo_moto, :photo_cin, :photo]
+    added_attrs = [:email, :password, :password_confirmation, :remember_me, :first_name, :last_name, :phone, :verified_whatsapp, :admin, :driver, :photo_moto, :photo_cin, :photo, :country_code]
     devise_parameter_sanitizer.permit :sign_up, keys: added_attrs
     devise_parameter_sanitizer.permit :account_update, keys: added_attrs
     devise_parameter_sanitizer.permit :sign_in, keys: added_attrs
@@ -26,6 +26,6 @@ class ApplicationController < ActionController::Base
   private
 
   def skip_pundit?
-    devise_controller? || params[:controller] =~ /(^(rails_)?admin)|(^pages$)/
+    devise_controller? || params[:controller] =~ /^phone_verifications/ || params[:controller] =~ /(^(rails_)?admin)|(^pages$)/
   end
 end

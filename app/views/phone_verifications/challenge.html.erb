@@ -1,0 +1,21 @@
+<section id="login">
+  <div class="login-wrapper">
+    <h2>Code de Vérification</h2>
+    <%= form_tag(verify_phone_verifications_path, method: :post) do -%>
+      <% if @response %>
+        <% @response.errors.each do |key, message| %>
+          <p><%= message %></p>
+        <% end %>
+      <% end %>
+      <div class='group'>
+        <%= text_field_tag "code", '', class: 'form-control' %>
+        <span class="highlight"></span>
+        <span class="bar"></span>
+        <%= label_tag "code", "Enter the code you were sent:", class: 'material'  %>
+      </div>
+      <div class="flex-center mt-5">
+        <%= button_tag "Verify", class: 'btn btn-success btn-rCab btn-rCab_sm' %>
+      </div>
+    <% end -%>
+  </div>
+</section>

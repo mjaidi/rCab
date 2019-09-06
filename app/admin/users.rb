@@ -13,6 +13,7 @@ ActiveAdmin.register User do
       column :created_at
       column :admin
       column :driver
+      column :verified
       actions
     end
 
@@ -24,6 +25,7 @@ ActiveAdmin.register User do
           f.input :password
           # f.input :admin
           f.input :driver
+          f.input :verified
           f.input :photo
           f.input :photo_moto
           f.input :photo_cin
@@ -31,8 +33,14 @@ ActiveAdmin.register User do
         actions
       end
 
+      controller do
+        def update_resource(object, attributes)
+          update_method = attributes.first[:password].present? ? :update_attributes : :update_without_password
+          object.send(update_method, *attributes)
+        end
+      end
 
-  permit_params :email, :first_name, :last_name, :phone, :admin, :driver, :photo_moto, :photo_cin, :photo, :password
+  permit_params :email, :first_name, :last_name, :phone, :admin, :driver, :photo_moto, :photo_cin, :photo, :password, :verified
   #
   # or
   #
