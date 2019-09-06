@@ -8,7 +8,7 @@
         <% end %>
       <% end %>
       <div class="group">
-        <%= select_tag "authy-countries", nil, name: 'country_code', 'data-show-as': 'number', 'data-value': "+#{current_user.country_code}", class: 'form-control' %>
+        <%= select_tag "authy-countries", nil, name: 'country_code', 'data-show-as': 'number', 'data-value': "+#{current_user.country_code || '212'}", class: 'form-control' %>
         <span class="highlight"></span>
         <span class="bar"></span>
         <%= label_tag "authy-countries", "Country code:", class: 'material' %>
