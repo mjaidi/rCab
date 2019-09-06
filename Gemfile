@@ -10,6 +10,8 @@ gem 'rails', '5.2.3'
 gem 'redis'
 gem 'pundit'
 
+gem 'authy'
+
 gem 'autoprefixer-rails'
 gem 'font-awesome-sass', '~> 5.6.1'
 gem 'sassc-rails'
@@ -21,9 +23,10 @@ gem 'carrierwave', '~> 1.2'
 gem 'geocoder'
 gem 'faraday'
 
-gem 'activeadmin', github: 'activeadmin/activeadmin'
-gem 'inherited_resources', github: 'activeadmin/inherited_resources'
+gem 'activeadmin'
+gem 'inherited_resources'
 gem 'arctic_admin'
+
 
 group :development do
   gem 'web-console', '>= 3.3.0'
@@ -37,5 +40,3 @@ group :development, :test do
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'dotenv-rails'
 end
-
-gem 'dotenv-rails', groups: [:development, :test]

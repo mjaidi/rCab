@@ -1,0 +1,40 @@
+<section id="login">
+  <div class="login-wrapper">
+    <h2>Vérifier téléphone</h2>
+    <%= form_tag(phone_verifications_path, method: :post) do -%>
+      <% if @response %>
+        <% @response.errors.each do |key, message| %>
+          <p><%= message %></p>
+        <% end %>
+      <% end %>
+      <div class="group">
+        <%= select_tag "authy-countries", nil, name: 'country_code', 'data-show-as': 'number', 'data-value': "+#{current_user.country_code}", class: 'form-control' %>
+        <span class="highlight"></span>
+        <span class="bar"></span>
+        <%= label_tag "authy-countries", "Country code:", class: 'material' %>
+      </div>
+      <div class="group">
+        <%= telephone_field_tag "phone_number", nil, name: 'phone_number', value: current_user.phone, class: 'form-control' %>
+        <span class="highlight"></span>
+        <span class="bar"></span>
+        <%= label_tag "phone_number", "Phone number:", class: 'material' %>
+      </div>
+      <div>
+        <h5 class='text-center mb-3 mt-5'>Méthode de Vérification</h5>
+        <div class="flex-center">
+          <div class='md-radio'>
+            <%= radio_button_tag "method", "sms" %>
+            <%= label_tag "method_sms", "SMS " %>
+          </div>
+          <div class="ml-4 md-radio">
+            <%= radio_button_tag "method", "call" %>
+            <%= label_tag "method_call", "Appel " %>
+          </div>
+        </div>
+      </div>
+      <div class="flex-center mt-5">
+        <%= button_tag "Verify", class: 'btn btn-success btn-rCab btn-rCab_sm' %>
+      </div>
+    <% end -%>
+  </div>
+</section>

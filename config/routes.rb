@@ -1,6 +1,15 @@
 Rails.application.routes.draw do
   ActiveAdmin.routes(self)
-  devise_for :users
+  devise_for :users, :controllers => {:registrations => "registrations"}
+  resources :phone_verifications, only: [:new, :create] do
+    collection do
+      get 'challenge'
+      post 'verify'
+      get 'success'
+    end
+  end
+
+
   root to: 'pages#home'
   resources :courses, except: [:show, :index] do
     member do
