@@ -1,5 +1,3 @@
-<%= render 'form', course: @course %>
-
 <div
   id="map-dir"
   style="width: 100%;
@@ -8,15 +6,12 @@
   data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
   data-with-inputs='true'
 >
-<div id='current-position' title='Utiliser ma position actuelle' data-toggle="tooltip" data-placement="bottom"><i class="fas fa-crosshairs"></i></div>
+  <%= render 'form', course: @course %>
+  <div id='current-position' title='Utiliser ma position actuelle' data-toggle="tooltip" data-placement="bottom"><i class="fas fa-crosshairs"></i></div>
 </div>
-
 <%#= link_to 'Back', courses_path %>
 <!-- Button trigger modal -->
 <button type="button" class="btn btn-primary hidden" data-toggle="modal"  id='btnValidatePrice' data-target="#validatePrice" data-backdrop="static" data-keyboard="false">
 </button>
-
-
 <div id="modal-wrapper">
-
 </div>

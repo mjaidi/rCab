@@ -12,7 +12,7 @@ const initMapboxDirections = () => {
       container: "map-dir",
       style: "mapbox://styles/mjaidi/ck053p1qb10og1crdi9qq63vy",
       center: [-7.6, 33.56],
-      zoom: 6
+      zoom: 10
     });
 
     let options = {
@@ -85,6 +85,10 @@ const initMapboxDirections = () => {
           lat: e.feature.geometry.coordinates[1],
           lng: e.feature.geometry.coordinates[0]
         };
+        document.getElementById("course_start_address").value =
+          originValue.name;
+        document.getElementById("course_start_lat").value = originValue.lat;
+        document.getElementById("course_start_lon").value = originValue.lng;
       });
 
       // set name coordinates of destination on destination input
@@ -93,6 +97,7 @@ const initMapboxDirections = () => {
           "#mapbox-directions-destination-input input"
         );
         let name = destination.value;
+
         if (
           destination.value.match(
             /^([-+]?)([\d]{1,2})(((\.)(\d+)(,)))(\s*)(([-+]?)([\d]{1,3})((\.)(\d+))?)$/g
@@ -105,18 +110,14 @@ const initMapboxDirections = () => {
           lat: e.feature.geometry.coordinates[1],
           lng: e.feature.geometry.coordinates[0]
         };
-      });
-
-      // set form values on route calculation
-      directions.on("route", e => {
-        document.getElementById("course_start_address").value =
-          originValue.name;
-        document.getElementById("course_start_lat").value = originValue.lat;
-        document.getElementById("course_start_lon").value = originValue.lng;
         document.getElementById("course_end_address").value =
           destinationValue.name;
         document.getElementById("course_end_lat").value = destinationValue.lat;
         document.getElementById("course_end_lon").value = destinationValue.lng;
+      });
+
+      // set form values on route calculation
+      directions.on("route", e => {
         document.getElementById("submit_new_course").classList.remove("hidden");
       });
     } else {
