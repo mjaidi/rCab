@@ -38,22 +38,20 @@ const initMapboxDirections = () => {
       let route = {};
 
       // workflow for geolication based on current position (get coordinates, reverse geolocate and set directions origin)
-      if ("geolocation" in navigator) {
-        document
-          .getElementById("current-position")
-          .addEventListener("click", e => {
-            navigator.geolocation.getCurrentPosition(p => {
-              reverseGeocode(
-                p.coords.latitude,
-                p.coords.longitude,
-                mapElement.dataset.mapboxApiKey
-              ).then(r => {
-                directions.setOrigin(r);
-              });
+      document
+        .getElementById("current-position")
+        .addEventListener("click", e => {
+          navigator.geolocation.getCurrentPosition(p => {
+            reverseGeocode(
+              p.coords.latitude,
+              p.coords.longitude,
+              mapElement.dataset.mapboxApiKey
+            ).then(r => {
+              directions.setOrigin(r);
             });
-            document.getElementById("current-position").classList.add("hidden");
           });
-      }
+          document.getElementById("current-position").classList.add("hidden");
+        });
 
       //show geolocation button again on origin clear
       directions.on("clear", e => {
