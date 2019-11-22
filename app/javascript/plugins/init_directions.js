@@ -19,8 +19,8 @@ const initMapboxDirections = () => {
       accessToken: mapboxgl.accessToken,
       styles: style,
       unit: "metric",
-      placeholderOrigin: "Choissisez un point de départ",
-      placeholderDestination: "Choissisez un point d'arriver",
+      placeholderOrigin: "منین",
+      placeholderDestination: "تالین",
       controls: {
         instructions: false,
         profileSwitcher: false
@@ -77,7 +77,7 @@ const initMapboxDirections = () => {
             /^([-+]?)([\d]{1,2})(((\.)(\d+)(,)))(\s*)(([-+]?)([\d]{1,3})((\.)(\d+))?)$/g
           )
         ) {
-          name = `localitation départ au : ${origin.value}`;
+          name = `: موقع المغادرة ${origin.value}`;
         }
         document.getElementById("current-position").classList.add("hidden");
         originValue = {
@@ -103,7 +103,7 @@ const initMapboxDirections = () => {
             /^([-+]?)([\d]{1,2})(((\.)(\d+)(,)))(\s*)(([-+]?)([\d]{1,3})((\.)(\d+))?)$/g
           )
         ) {
-          name = `localitation arrivé au : ${destination.value}`;
+          name = `: موقع الوصول ${destination.value}`;
         }
         destinationValue = {
           name: name,

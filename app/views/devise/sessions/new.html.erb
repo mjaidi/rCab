@@ -1,6 +1,6 @@
 <section id="login">
   <div class="login-wrapper">
-    <h2>Log in</h2>
+    <h2>تكونیكطا</h2>
 
     <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
       <div class="form-inputs">
@@ -10,7 +10,7 @@
                       autofocus: true , wrapper: false, label: false%>
             <span class="highlight"></span>
             <span class="bar"></span>
-            <%= f.label :phone, label: 'Numéro de téléphone', class: 'material' %>
+            <%= f.label :phone, label: 'نمرة تلیفون', class: 'material' %>
           </div>
           <div class="group">
             <%= f.input :password,
@@ -19,13 +19,13 @@
                       autofocus: true, wrapper: false, label: false %>
             <span class="highlight"></span>
             <span class="bar"></span>
-            <%= f.label :password, label: 'Mot de passe', class: 'material' %>
+            <%= f.label :password, label: 'لكود', class: 'material' %>
           </div>
-        <%= f.input :remember_me, as: :boolean, label: 'Se souvenir de moi' if devise_mapping.rememberable? %>
+        <%= f.input :remember_me, as: :boolean, label: 'تفكرني' if devise_mapping.rememberable? %>
       </div>
 
       <div class="form-actions flex-center">
-        <%= f.button :submit, "Log in", class: 'btn btn-lg btn-success btn-rCab' %>
+        <%= f.button :submit, "دخل", class: 'btn btn-lg btn-success btn-rCab' %>
       </div>
     <% end %>
 

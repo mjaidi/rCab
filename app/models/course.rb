@@ -16,7 +16,8 @@ class Course < ApplicationRecord
   private
 
   def calculate_price
-    (self.duration * 0.1 + self.distance*0.2).round(2)
+    (2 + self.duration * 0.05 + self.distance).round(0)
+  # min de 5dh par course
   end
 
   # def geocode_endpoints

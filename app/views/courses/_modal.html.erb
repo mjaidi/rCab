@@ -3,18 +3,18 @@
   <div class="modal-dialog  modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-header bg-success text-white">
-        <h5 class="modal-title" id="validatePriceLabel">Valider Course</h5>
+        <h5 class="modal-title" id="validatePriceLabel">الرحلة أكد</h5>
         <%= link_to course_path(course), method: 'delete', data: {dismiss: 'modal'}, class: 'close' do %>
             <span aria-hidden="true">&times;</span>
         <% end %>
       </div>
       <div class="modal-body text-center">
-        <h5>Prix</h5>
+        <h5>تمن الرحلة</h5>
         <p><%= course.price %> DH</p>
       </div>
       <div class="modal-footer">
-        <%= link_to 'Annuler', course_path(course), method: 'delete', class: 'btn btn-secondary' %>
-        <%= link_to 'Valider', set_price_course_path(course), method: 'patch', class: 'btn btn-success btn-rCab btn-rCab__sm' %>
+        <%= link_to 'لغي', course_path(course), method: 'delete', class: 'btn btn-secondary' %>
+        <%= link_to 'أكد', set_price_course_path(course), method: 'patch', class: 'btn btn-success btn-rCab btn-rCab__sm' %>
       </div>
     </div>
   </div>

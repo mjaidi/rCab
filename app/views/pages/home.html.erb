@@ -1,16 +1,16 @@
 <section id="home-banner">
   <div class="banner-wrapper">
-    <h1>rCab Header text</h1>
-    <h4>Lorem ipsum some call to action on this line more text</h4>
+    <h1>ركب</h1>
+    <h4>رحلة بعد رحلة باش نسهلو حياتك</h4>
     <% if !user_signed_in? || policy(Course).new? %>
-      <%= link_to 'Voyagez maintenant!', new_course_path, class: 'btn btn-success btn-lg btn-rCab' %>
+      <%= link_to 'سافر دابا', new_course_path, class: 'btn btn-success btn-lg btn-rCab' %>
     <% end %>
   </div>
 </section>
 
 
 <section id="home-content">
-  <h2 class="home-title">Why rCab?</h2>
+  <h2 class="home-title">علاش ركاب</h2>
   <div class="container">
     <div class="row justify-content-center">
       <div class="col-12 col-md-4">
@@ -19,7 +19,7 @@
             <%= svg 'delivery' %>
           </div>
           <div class="card-txt">
-            <p>Some text about why rCab</p>
+            <p>أحسن طريقة باش اتنقل في المدينة هي بالمطور ، ما كاين لا الزحام لا تعطال ولا تبقى تساين ,كنواعدوك</p>
           </div>
         </div>
       </div>
@@ -29,45 +29,57 @@
             <%= svg 'map_dark' %>
           </div>
           <div class="card-txt">
-            <p>Some text about why rCab</p>
+            <p>مهمتنا هي نسهلو حياة الناس او نقربو المسافات ، او نبنيوْ علاقة قوية بيناتنا</p>
           </div>
         </div>
       </div>
     </div>
   </div>
-  <h2 class="home-title">How it Works</h2>
+  <h2 class="home-title">كيفاش كيخدم</h2>
   <div class="container">
     <div class="row">
-      <div class="col-12 col-md-4">
+      <div class="col-12 col-md-3">
         <div class="home-card">
-          <p class="card-number">1</p>
+          <p class="card-number">4</p>
           <div class="card-img">
             <%= svg 'bus_stop' %>
           </div>
           <div class="card-txt">
-            <p>Some text about how rCab Works</p>
+            <p>  راك وصلتي على خير، خلس كاش، بلاكرط  أوشارجي حسابك</p>
           </div>
         </div>
       </div>
-      <div class="col-12 col-md-4">
+      <div class="col-12 col-md-3">
+        <div class="home-card">
+          <p class="card-number">3</p>
+          <div class="card-img">
+            <%= svg 'bus_stop' %>
+          </div>
+          <div class="card-txt">
+            <p>المطور وصل، ما عليك غير دير الكاسك وتمشي بأمان</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-3">
         <div class="home-card">
           <p class="card-number">2</p>
           <div class="card-img">
             <%= svg 'map_light' %>
           </div>
           <div class="card-txt">
-            <p>Some text about how rCab Works</p>
+            <p>لي جاى عليك راه فالطريق ويمكن ليك تبعُ فتطبيق تليفونك</p>
           </div>
         </div>
       </div>
-      <div class="col-12 col-md-4">
+      <div class="col-12 col-md-3">
         <div class="home-card">
-          <p class="card-number">3</p>
+          <p class="card-number">1</p>
           <div class="card-img">
             <%= svg 'adventure' %>
           </div>
           <div class="card-txt">
-            <p>Some text about how rCab Works</p>
+            <p>تلقى المطور واجد في دقايق قليلة</p>
+            <br><br><br>
           </div>
         </div>
       </div>

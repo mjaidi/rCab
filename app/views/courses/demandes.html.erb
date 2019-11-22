@@ -1,6 +1,6 @@
 <section id="course_card" class='mt-3'>
   <div class="container">
-    <h4 class = "text-center">Demandes en cours</h4>
+    <h4 class = "text-center">الكورصات الحالية</h4>
     <div class="row">
       <% @courses.each do |course| %>
         <div class="col-12 col-md-4">
@@ -8,11 +8,11 @@
             <h6>
               <strong><%= course.created_at.strftime('%d/%m/%y') %> - <%=course.created_at.strftime('%R') %></strong>
             </h6>
-            <%= card_content_p('Départ :', course.start_address) %>
-            <%= card_content_p('Arrivé :', course.end_address) %>
-            <%= card_content_p('Prix :', course.price) %>
+            <%= card_content_p(': منين', course.start_address) %>
+            <%= card_content_p(': تالين', course.end_address) %>
+            <%= card_content_p(': التمن', course.price) %>
             <div class="flex-center" style="margin-top: 16px;">
-              <%= link_to "Accépter Course", select_course_path(course), class: "btn btn-lg btn-success btn-rCab btn-rCab__sm"%>
+              <%= link_to "خود هاد الكورصة", select_course_path(course), class: "btn btn-lg btn-success btn-rCab btn-rCab__sm"%>
             </div>
           </div>
         </div>

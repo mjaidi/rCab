@@ -1,9 +1,8 @@
 <section id="course_card" class='mt-3'>
   <div class="container">
-    <h4 class = "text-center">Dashboard</h4>
     <div class="flex-center">
       <button type="button" class="btn btn-success btn-rCab  my-3" data-toggle="modal"   data-target="#driverTotal" >
-        Voir Total
+        المجموع
       </button>
     </div>
     <div class="row">
@@ -14,9 +13,9 @@
               <h6>
                 <%= course.created_at.strftime('%d/%m/%y') %> - <%=course.created_at.strftime('%R') %>
               </h6>
-              <%= card_content_p('Départ :', course.start_address) %>
-              <%= card_content_p('Arrivé :', course.end_address) %>
-              <%= card_content_p('Prix :', course.price) %>
+              <%= card_content_p(': منین', course.start_address) %>
+              <%= card_content_p(': تالین', course.end_address) %>
+              <%= card_content_p(': التمن', course.price) %>
               <% unless course.note.nil? %>
                 <div class="flex-center">
                   <div class="course-note" data-note='<%=course.note%>'></div>

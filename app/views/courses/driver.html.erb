@@ -11,16 +11,16 @@
             <% end %>
           </div>
           <div class="driver-info">
-            <h4>Votre Client</h4>
-            <%= card_content_p('Nom :', "#{@course.client.first_name} #{@course.client.last_name}") %>
-            <%= card_content_p('Tel :', @course.client.phone) %>
+            <h4>لكليان</h4>
+            <%= card_content_p(': سمية', "#{@course.client.first_name} #{@course.client.last_name}") %>
+            <%= card_content_p(': تليفون', @course.client.phone) %>
           </div>
           <div class="course-info">
-            <h4>Votre course</h4>
-            <%= card_content_p('Départ :', @course.start_address) %>
-            <%= card_content_p('Arrivée :', @course.end_address) %>
-            <%= card_content_p('Durée Estimé :', "#{@course.duration.round} minutes") %>
-            <%= card_content_p('Prix :', @course.price) %>
+            <h4>الرحلة ديالك</h4>
+            <%= card_content_p(': منين', @course.start_address) %>
+            <%= card_content_p(': تالين', @course.end_address) %>
+            <%= card_content_p(': شحال ديال الوقت', "#{@course.duration.round}") %>
+            <%= card_content_p(': التمن', @course.price) %>
           </div>
         </div>
       </div>

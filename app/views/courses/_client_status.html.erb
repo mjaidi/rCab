@@ -10,25 +10,25 @@
           <% end %>
         </div>
         <div class="driver-info">
-          <h4>Votre chauffeur</h4>
-          <%= card_content_p('Nom :', "#{@course.driver.first_name} #{@course.driver.last_name}") %>
-          <%= card_content_p('Tel :', @course.driver.phone) %>
-          <%= card_content_p('ID :', @course.driver.id) %>
+          <h4>مول الموطور</h4>
+          <%= card_content_p(': سمیة', "#{@course.driver.first_name} #{@course.driver.last_name}") %>
+          <%= card_content_p(': تلیفون', @course.driver.phone) %>
+          <%= card_content_p(': المتريكول', @course.driver.id) %>
           <div class="flex-center">
             <div class="course-note" data-note='<%=@course.driver.average_note%>'></div>
               </div>
         </div>
         <div class="course-info">
-          <h4>Votre course</h4>
-          <%= card_content_p('Départ :', @course.start_address) %>
-          <%= card_content_p('Arrivée :', @course.end_address) %>
-          <%= card_content_p('Durée Estimé :', "#{@course.duration.round} minutes") %>
-          <%= card_content_p('Prix :', @course.price) %>
+          <h4>الرحلة</h4>
+          <%= card_content_p(': منین', @course.start_address) %>
+          <%= card_content_p(': تالین', @course.end_address) %>
+          <%= card_content_p(': شحال دیال الوقت', "دقائق #{@course.duration.round}") %>
+          <%= card_content_p(': التمن', @course.price) %>
         </div>
       </div>
     <% else %>
     <div class=" flex-center btn btn-lg btn-success btn-status btn-status-active">
-      Nous cherchons un chauffeur
+      كنقلبو على الموطور لقریب
     </div>
     <% end %>
   </div>
@@ -36,28 +36,28 @@
 <div class="row">
   <div class="col-12 col-md-4-offset">
     <div class=" flex-center btn btn-lg btn-success btn-status <%= 'btn-status-active' if course.status == 'accepted'%>">
-      Votre chauffeur est en route
+      لي فطریق راه جاي علیك
     </div>
     </div>
   </div>
 <div class="row">
   <div class="col-12 col-md-4-offset">
     <div class=" flex-center btn btn-lg btn-success btn-status <%= 'btn-status-active' if course.status == 'arrived'%>"">
-      Votre chauffeur est arrivée
+      وصل الموطور
     </div>
     </div>
   </div>
 <div class="row">
   <div class="col-12 col-md-4-offset">
     <div class=" flex-center btn btn-lg btn-success btn-status <%= 'btn-status-active' if course.status == 'finished'%>"">
-      Votre course est terminée
+      وصلتي على خیر
     </div>
     <% if course.status == 'finished' %>
     <div id="notes" class='my-5'>
       <div id="note<%=course.note%>">
       <%= simple_form_for course, url: course_path(course), authenticity_token: false do |f| %>
       <input type="hidden" name="authenticity_token" id="authenticity_token" value="<%= form_authenticity_token()%>" />
-            <h5 class='home-title'>Noter votre course</h5>
+            <h5 class='home-title'>كیجاتك الرحلة</h5>
             <div class="my-5 flex-center">
               <div id='rating-note'></div>
             </div>
@@ -66,9 +66,9 @@
               <%= f.input :comment, input_html: {class: 'material__textarea'}, label: false, autofocus: true , wrapper: false  %>
               <span class="highlight"></span>
               <span class="bar"></span>
-              <%= f.label :commennt, label: 'Commentaire', class: 'material' %>
+              <%= f.label :commennt, label: 'عندك شي ملاحظة', class: 'material' %>
             </div>
-            <%= f.button :submit, class: 'btn btn-success  btn-block btn-rCab  btn-rCab__sm', value: "Commentez"%>
+            <%= f.button :submit, class: 'btn btn-success  btn-block btn-rCab  btn-rCab__sm', value: "صیفط"%>
           <% end %>
         </div>
       </div>
