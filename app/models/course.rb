@@ -16,7 +16,9 @@ class Course < ApplicationRecord
   private
 
   def calculate_price
-    (2 + self.duration * 0.05 + self.distance).round(0)
+    price = (self.duration * 0.05 + self.distance * 1.5).round(0)
+    price = 5 if price < 5
+    return price
   # min de 5dh par course
   end
 

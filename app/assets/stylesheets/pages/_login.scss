@@ -35,7 +35,7 @@
 input.form-control,
 textarea.form-control,
 select.form-control {
-    font-size: 18px;
+    font-size: 14px;
     padding: 10px 10px 10px 5px;
     display: block;
     width: 100%;
@@ -59,12 +59,12 @@ select.form-control:focus {
 
 label.material {
     color: #999;
-    font-size: 18px;
+    font-size: 24px;
     font-weight: normal;
     position: absolute;
     pointer-events: none;
     left: 5px;
-    top: 10px;
+    top: 0px;
     transition: 0.2s ease all;
     -moz-transition: 0.2s ease all;
     -webkit-transition: 0.2s ease all;
@@ -80,7 +80,7 @@ select.form-control:focus~label,
 textarea.form-control:valid~label,
 select.form-control~label {
     top: -20px;
-    font-size: 14px;
+    font-size: 18px;
     color: $green;
 }
 

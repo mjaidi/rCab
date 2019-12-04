@@ -16,8 +16,14 @@
   <body>
     <%= render 'shared/navbar' %>
     <%= render 'shared/flashes' %>
-    <%= yield %>
-    <%= render 'shared/footer' %>
+    <div id="page-container">
+      <div id="content-wrap">
+        <%= yield %>
+     </div>
+     <div id="footer">
+      <%= render 'shared/footer' %>
+     </div>
+   </div>
     <%= javascript_include_tag 'application' %>
     <%= javascript_include_tag 'https://cdnjs.cloudflare.com/ajax/libs/authy-form-helpers/2.3/form.authy.min.js', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application' %>
