@@ -1,48 +1,54 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-
-  <%= link_to root_path, class: "navbar-brand" do %>
+  <%= link_to root_path(I18n.locale), class: "navbar-brand" do %>
     <%= image_tag "rcab-logo.jpg", class: "avatar-large", alt: "rcab"  %>
-    <% end %>
-
+  <% end %>
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <% if user_signed_in? %>
+        <% if current_user.driver %>
+          <li class="nav-item">
+            <%= link_to t('navbar.demandes'), demandes_path(I18n.locale), class: "nav-link" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to t('navbar.dashboard'), driver_dashboard_path(I18n.locale), class: "nav-link" %>
+          </li>
+        <% else %>
+          <li class="nav-item">
+            <%= link_to t('navbar.dashboard'), dashboard_path(I18n.locale), class: "nav-link" %>
+          </li>
+        <% end %>
         <li class="nav-item dropdown">
           <% if current_user.photo.blank? %>
-            <img src="https://hadeplatform.com/img/default.png" class="avatar-large dropdown-toggle" id="navbarDropdown" data-toggle="dropdown">
+            <%= image_tag 'avatar.png', class: 'avatar-large dropdown-toggle', id: "navbarDropdown", data: {toggle: "dropdown"} %>
           <% else %>
             <%= cl_image_tag current_user.photo, width: 40, height: 40, crop: :thumb, gravity: :face, class: "avatar-large dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false%>
           <% end %>
           <div class="dropdown-menu dropdown-menu-left" aria-labelledby="navbarDropdown">
-            <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+            <%= link_to t('navbar.logout'), destroy_user_session_path, method: :delete, class: "dropdown-item" %>
           </div>
         </li>
-        <% if current_user.driver %>
-          <li class="nav-item">
-            <%= link_to "الكورصات الحالية", demandes_path, class: "nav-link" %>
-          </li>
-          <li class="nav-item">
-            <%= link_to "الرحلات", driver_dashboard_path, class: "nav-link" %>
-          </li>
-        <% else %>
-          <li class="nav-item">
-            <%= link_to "الرحلات", dashboard_path, class: "nav-link" %>
-          </li>
-        <% end %>
       <% else %>
         <li class="nav-item">
-          <%= link_to "طلب دراجة نارية", new_user_session_path, class: "nav-link" %>
+          <%= link_to t("navbar.login"), new_user_session_path, class: "nav-link" %>
         </li>
         <li class="nav-item">
-          <%= link_to "كن سائق", new_user_session_path, class: "nav-link" %>
+          <%= link_to t('navbar.login'), new_user_session_path, class: "nav-link" %>
           <!-- TODO ajouter le type de client dans le form-->
         </li>
       <% end %>
+      <li class="nav-item dropdown">
+        <%= image_tag t(I18n.locale), class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+          <% I18n.available_locales.each do |lang| %>
+            <%= link_to lang_path(I18n.locale, lang), class: "dropdown-item" do %>
+              <%= image_tag t(lang), class: "avatar dropdown-toggle" %> <%= t("lang_#{lang}") %>
+            <% end %>
+          <% end %>
+        </div>
+      </li>
     </ul>
   </div>
-
 </div>

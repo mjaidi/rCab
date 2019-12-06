@@ -1,0 +1,65 @@
+ar:
+  fr: "france.png"
+  ar: "morocco.png"
+  lang_fr: "Français"
+  lang_ar: "العربية"
+  navbar:
+    logout: "déconnexion"
+    demandes: "الكورصات الحالية"
+    dashboard: "الرحلات"
+    login: "طلب دراجة نارية"
+  footer:
+    policy: "مركز المساعدة"
+    security: "سياسة الخصوصية"
+  home:
+    banner_title1: "ركب"
+    banner_subtitle1: "رحلة بعد رحلة باش نسهلو حياتك"
+    new_course_btn: "سافر دابا"
+    why:
+      title: "علاش ركاب"
+      card1: "أحسن طريقة باش اتنقل في المدينة هي بالمطور ، ما كاين لا الزحام لا تعطال ولا تبقى تساين ,كنواعدوك"
+      card2: "مهمتنا هي نسهلو حياة الناس او نقربو المسافات ، او نبنيوْ علاقة قوية بيناتنا"
+    how:
+      title: "كيفاش كيخدم"
+      card1: "راك وصلتي على خير، خلس كاش، بلاكرط  أوشارجي حسابك"
+      card2: "المطور وصل، ما عليك غير دير الكاسك وتمشي بأمان"
+      card3: "لي جاى عليك راه فالطريق ويمكن ليك تبعُ فتطبيق تليفونك"
+      card4: "تلقى المطور واجد في دقايق قليلة"
+  dashboard:
+    title: "الرحلات"
+    new_course_btn: "رحلة جديدة"
+  driver_dashboard:
+    check_total: "المجموع"
+  demandes:
+    title: "الكورصات الحالية"
+    select_course: "خود هاد الكورصة"
+  course_card:
+    title: "الرحلة"
+    start_address: ": منین"
+    end_address: ": تالین"
+    price: ": التمن"
+    duration: ": التمن"
+  driver_card:
+    title: "مول الموطور"
+    name: ": سمیة"
+    phone: ": تلیفون"
+    id: ": المتريكول"
+  client_card:
+    title: "لكليان"
+    name: ": سمیة"
+    phone: ": تلیفون"
+  validate_price:
+    title: "الرحلة أكد"
+    check_price: "حسب التمن"
+    price: "تمن الرحلة"
+    cancel: "لغي"
+    validate: "أكد"
+  course_status:
+    search: " كنقلبو على الموطور لقریب"
+    accepted: " لي فطریق راه جاي علیك"
+    arrived: " وصل الموطور"
+    finished: " وصلتي على خیر"
+  comment_form:
+    title: "كیجاتك الرحلة"
+    comment: "عندك شي ملاحظة"
+    submit: "صیفط"

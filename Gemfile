@@ -11,6 +11,7 @@ gem 'redis'
 gem 'pundit'
 
 gem 'authy'
+gem 'rails-i18n'
 
 gem 'autoprefixer-rails'
 gem 'font-awesome-sass', '~> 5.6.1'

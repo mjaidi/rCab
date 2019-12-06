@@ -3,4 +3,9 @@ class PagesController < ApplicationController
 
   def home
   end
+
+  def lang
+    I18n.locale = params[:lang].to_sym
+    redirect_to root_path(I18n.locale)
+  end
 end

@@ -5,6 +5,7 @@
   data-markers="<%= @markers.to_json %>"
   data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
   data-with-inputs='true'
+  data-locale="<%= I18n.locale%>"
 >
   <%= render 'form', course: @course %>
   <div id='current-position' title='Utiliser ma position actuelle' data-toggle="tooltip" data-placement="bottom"><i class="fas fa-crosshairs"></i></div>

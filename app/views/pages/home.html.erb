@@ -1,16 +1,14 @@
 <section id="home-banner">
   <div class="banner-wrapper">
-    <h1>ركب</h1>
-    <h4>رحلة بعد رحلة باش نسهلو حياتك</h4>
+    <h1><%= t('home.banner_title1') %></h1>
+    <h4><%= t('home.banner_subtitle1') %></h4>
     <% if !user_signed_in? || policy(Course).new? %>
-      <%= link_to 'سافر دابا', new_course_path, class: 'btn btn-success btn-lg btn-rCab' %>
+      <%= link_to t('home.new_course_btn'), new_course_path(I18n.locale), class: 'btn btn-success btn-lg btn-rCab' %>
     <% end %>
   </div>
 </section>
-
-
 <section id="home-content">
-  <h2 class="home-title">علاش ركاب</h2>
+  <h2 class="home-title"><%= t('home.why.title') %></h2>
   <div class="container">
     <div class="row justify-content-center">
       <div class="col-12 col-md-4">
@@ -19,7 +17,7 @@
             <%= svg 'delivery' %>
           </div>
           <div class="card-txt">
-            <p>أحسن طريقة باش اتنقل في المدينة هي بالمطور ، ما كاين لا الزحام لا تعطال ولا تبقى تساين ,كنواعدوك</p>
+            <p><%= t('home.why.card1') %></p>
           </div>
         </div>
       </div>
@@ -29,34 +27,23 @@
             <%= svg 'map_dark' %>
           </div>
           <div class="card-txt">
-            <p>مهمتنا هي نسهلو حياة الناس او نقربو المسافات ، او نبنيوْ علاقة قوية بيناتنا</p>
+            <p><%= t('home.why.card2') %></p>
           </div>
         </div>
       </div>
     </div>
   </div>
-  <h2 class="home-title">كيفاش كيخدم</h2>
+  <h2 class="home-title"><%= t('home.how.title') %></h2>
   <div class="container">
     <div class="row">
       <div class="col-12 col-md-3">
         <div class="home-card">
-          <p class="card-number">4</p>
+          <p class="card-number">1</p>
           <div class="card-img">
             <%= svg 'bus_stop' %>
           </div>
           <div class="card-txt">
-            <p>  راك وصلتي على خير، خلس كاش، بلاكرط  أوشارجي حسابك</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-12 col-md-3">
-        <div class="home-card">
-          <p class="card-number">3</p>
-          <div class="card-img">
-            <%= svg 'bus_stop' %>
-          </div>
-          <div class="card-txt">
-            <p>المطور وصل، ما عليك غير دير الكاسك وتمشي بأمان</p>
+            <%= (t('home.how.card1')) %>
           </div>
         </div>
       </div>
@@ -64,22 +51,32 @@
         <div class="home-card">
           <p class="card-number">2</p>
           <div class="card-img">
-            <%= svg 'map_light' %>
+            <%= svg 'bus_stop' %>
           </div>
           <div class="card-txt">
-            <p>لي جاى عليك راه فالطريق ويمكن ليك تبعُ فتطبيق تليفونك</p>
+            <%= (t('home.how.card2')) %>
           </div>
         </div>
       </div>
       <div class="col-12 col-md-3">
         <div class="home-card">
-          <p class="card-number">1</p>
+          <p class="card-number">3</p>
+          <div class="card-img">
+            <%= svg 'map_light' %>
+          </div>
+          <div class="card-txt">
+            <%= (t('home.how.card3')) %>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-3">
+        <div class="home-card">
+          <p class="card-number">4</p>
           <div class="card-img">
             <%= svg 'adventure' %>
           </div>
           <div class="card-txt">
-            <p>تلقى المطور واجد في دقايق قليلة</p>
-            <br><br><br>
+            <%= (t('home.how.card4')) %>
           </div>
         </div>
       </div>

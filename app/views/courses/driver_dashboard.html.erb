@@ -2,20 +2,21 @@
   <div class="container">
     <div class="flex-center">
       <button type="button" class="btn btn-success btn-rCab  my-3" data-toggle="modal"   data-target="#driverTotal" >
-        المجموع
+        <%= t("driver_dashboard.check_total") %>
       </button>
     </div>
     <div class="row">
       <% @courses.each do |course| %>
         <div class="col-12 col-md-4">
-          <%= link_to driver_course_path(course) do %>
+          <%= link_to driver_course_path(I18n.locale,course) do %>
             <div class="card">
               <h6>
                 <%= course.created_at.strftime('%d/%m/%y') %> - <%=course.created_at.strftime('%R') %>
               </h6>
-              <%= card_content_p(': منین', course.start_address) %>
-              <%= card_content_p(': تالین', course.end_address) %>
-              <%= card_content_p(': التمن', course.price) %>
+              <%= card_content_p(t('course_card.start_address'), course.start_address) %>
+              <%= card_content_p(t('course_card.end_address'), course.end_address) %>
+              <%= card_content_p(t('course_card.price'), course.price.round(2)) %>
+              <%= card_content_p(t('course_card.duration'), course.duration.round(2)) %>
               <% unless course.note.nil? %>
                 <div class="flex-center">
                   <div class="course-note" data-note='<%=course.note%>'></div>

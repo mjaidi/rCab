@@ -11,16 +11,16 @@
             <% end %>
           </div>
           <div class="driver-info">
-            <h4>لكليان</h4>
-            <%= card_content_p(': سمية', "#{@course.client.first_name} #{@course.client.last_name}") %>
-            <%= card_content_p(': تليفون', @course.client.phone) %>
+            <h4><%= t('client_card.title') %></h4>
+            <%= card_content_p(t('client_card.name'), "#{@course.client.first_name} #{@course.client.last_name}") %>
+            <%= card_content_p(t('client_card.phone'), @course.client.phone) %>
           </div>
           <div class="course-info">
-            <h4>الرحلة ديالك</h4>
-            <%= card_content_p(': منين', @course.start_address) %>
-            <%= card_content_p(': تالين', @course.end_address) %>
-            <%= card_content_p(': شحال ديال الوقت', "#{@course.duration.round}") %>
-            <%= card_content_p(': التمن', @course.price) %>
+            <h4><%= t('course_card.title') %></h4>
+            <%= card_content_p(t('course_card.start_address'), @course.start_address) %>
+            <%= card_content_p(t('course_card.end_address'), @course.end_address) %>
+            <%= card_content_p(t('course_card.duration'), "min #{@course.duration.round}") %>
+            <%= card_content_p(t('course_card.price'), @course.price) %>
           </div>
         </div>
       </div>
@@ -30,7 +30,6 @@
     </div>
   </div>
 </section>
-
 <div
   id="map-dir"
   style="width: 100%;
@@ -39,6 +38,5 @@
   data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
   data-with-input='false'
 ></div>
-
 <%#= link_to 'Edit', edit_course_path(@course) %>
 <%#= link_to 'Back', courses_path %>

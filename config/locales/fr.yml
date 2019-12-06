@@ -1,0 +1,65 @@
+fr:
+  fr: "france.png"
+  ar: "morocco.png"
+  lang_fr: "Français"
+  lang_ar: "العربية"
+  navbar:
+    logout: "déconnexion"
+    demandes: "Demandes en Cours"
+    dashboard: "Tableau de Bord"
+    login: "Se connécter"
+  footer:
+    policy: "CGU"
+    security: "Sécurité"
+  home:
+    banner_title1: "rCab"
+    banner_subtitle1: "Commencez votre course dès aujourd'hui"
+    new_course_btn: "Nouvelle course"
+    why:
+      title: "Pourquoi rCab"
+      card1: "Meilleur service pourquoi rCab"
+      card2: "Meilleur tarifs pourqhoi rCab"
+    how:
+      title: "Pourquoi rCab?"
+      card1: "something why rcab1"
+      card2: "something why rcab1"
+      card3: "something why rcab1"
+      card4: "something why rcab1"
+  dashboard:
+    title: "Tableau de Bord"
+    new_course_btn: "Nouvelle Course"
+  driver_dashboard:
+    check_total: "Voir total"
+  demandes:
+    title: "Demandes en cours"
+    select_course: "Accépter course"
+  course_card:
+    title: "Course"
+    start_address: "Départ :"
+    end_address: "Arrivé :"
+    price: "Prix :"
+    duration: "Durée :"
+  driver_card:
+    title: "Votre Chauffeur"
+    name: "nom :"
+    phone: "Téléphone :"
+    id: "Numéro :"
+  client_card:
+    title: "Client"
+    name: "nom :"
+    phone: "Téléphone :"
+  validate_price:
+    title: "Validez la course"
+    price: "Prix de la course"
+    check_price: "Voir le prix"
+    cancel: "Annuler"
+    validate: "Validez"
+  course_status:
+    search: "nous cherchons le chauffeur le plus proche"
+    accepted: "votre chauffeur est en route"
+    arrived: "votre chauffeur est arrivé"
+    finished: "votre course est terminé"
+  comment_form:
+    title: "Laissez un commentaire"
+    comment: "Commentaire"
+    submit: "Validez"

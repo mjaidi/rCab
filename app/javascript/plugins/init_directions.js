@@ -19,8 +19,9 @@ const initMapboxDirections = () => {
       accessToken: mapboxgl.accessToken,
       styles: style,
       unit: "metric",
-      placeholderOrigin: "منین",
-      placeholderDestination: "تالین",
+      placeholderOrigin: mapElement.dataset.locale === "ar" ? "منین" : "Départ",
+      placeholderDestination:
+        mapElement.dataset.locale === "ar" ? "تالین" : "Arrivé",
       controls: {
         instructions: false,
         profileSwitcher: false

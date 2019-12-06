@@ -1,7 +1,8 @@
 require 'date'
 
 class CoursesController < ApplicationController
-  before_action :set_course, only: [:client, :driver, :edit, :update, :select, :start, :end, :set_price, :destroy]
+  before_action :set_course, only: [:client, :driver, :edit, :update, :select, :start, :end, :destroy, :set_price]
+
 
   def demandes
     @courses = policy_scope(Course).select{ |course| course.status == "search" }
@@ -42,7 +43,7 @@ class CoursesController < ApplicationController
     @course.status = "accepted"
     @course.driver = current_user
     if @course.save
-      redirect_to driver_course_path(@course)
+      redirect_to driver_course_path(I18n.locale,@course)
       ActionCable.server.broadcast "course_channel_#{@course.id}",
                                    driver_status:  render_driver_status(@course),
                                    client_status:  render_client_status(@course),
@@ -85,7 +86,7 @@ class CoursesController < ApplicationController
         format.html {
           @course.status = 'search'
           @course.save
-          redirect_to client_course_path(@course)
+          redirect_to client_course_path(I18n.locale,@course)
         }
         format.js
       end
@@ -98,18 +99,18 @@ class CoursesController < ApplicationController
   def set_price
     @course.status = 'search'
     @course.save
-    redirect_to client_course_path(@course)
+    redirect_to client_course_path(I18n.locale,@course)
   end
 
   def update
     if @course.update(course_params)
-      redirect_to dashboard_path
+      redirect_to dashboard_path(I18n.locale)
     end
   end
 
   def destroy
     @course.destroy
-    redirect_to new_course_path
+    redirect_to new_course_path(I18n.locale)
   end
 
   private

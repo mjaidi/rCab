@@ -1,11 +1,9 @@
-<%= simple_form_for(@course, remote: true) do |f| %>
-    <%= f.input :start_address, as: :hidden%>
-    <%= f.input :start_lat, as: :hidden%>
-    <%= f.input :start_lon, as: :hidden%>
-    <%= f.input :end_address, as: :hidden %>
-    <%= f.input :end_lat, as: :hidden %>
-    <%= f.input :end_lon, as: :hidden %>
-    <%= f.button :submit, "حسب التمن", class: 'btn btn-success btn-rCab btn-rCab__sm hidden', id: 'submit_new_course'%>
+<%= simple_form_for( @course, remote: true, url: "/#{I18n.locale}/courses", method: :post) do |f| %>
+  <%= f.input :start_address, as: :hidden%>
+  <%= f.input :start_lat, as: :hidden%>
+  <%= f.input :start_lon, as: :hidden%>
+  <%= f.input :end_address, as: :hidden %>
+  <%= f.input :end_lat, as: :hidden %>
+  <%= f.input :end_lon, as: :hidden %>
+  <%= f.button :submit, t('validate_price.check_price'), class: 'btn btn-success btn-rCab btn-rCab__sm hidden', id: 'submit_new_course'%>
 <% end %>
-
-
