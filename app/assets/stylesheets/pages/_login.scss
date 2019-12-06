@@ -40,7 +40,7 @@ select.form-control {
     display: block;
     width: 100%;
     border: none;
-    border-bottom: 1px solid $green;
+    border-bottom: 1px solid $main;
 }
 
 input.form-control:focus,
@@ -81,7 +81,7 @@ textarea.form-control:valid~label,
 select.form-control~label {
     top: -20px;
     font-size: 18px;
-    color: $green;
+    color: $main;
 }
 
 .form-control.is-invalid:focus {
@@ -109,7 +109,7 @@ select.form-control~label {
     width: 0;
     bottom: 1px;
     position: absolute;
-    background: $green;
+    background: $main;
     transition: 0.2s ease all;
     -moz-transition: 0.2s ease all;
     -webkit-transition: 0.2s ease all;
@@ -173,7 +173,7 @@ select.form-control:focus~.highlight {
 
 @-webkit-keyframes inputHighlighter {
     from {
-        background: $green;
+        background: $main;
     }
     to {
         width: 0;
@@ -183,7 +183,7 @@ select.form-control:focus~.highlight {
 
 @-moz-keyframes inputHighlighter {
     from {
-        background: $green;
+        background: $main;
     }
     to {
         width: 0;
@@ -193,7 +193,7 @@ select.form-control:focus~.highlight {
 
 @keyframes inputHighlighter {
     from {
-        background: $green;
+        background: $main;
     }
     to {
         width: 0;
@@ -201,7 +201,7 @@ select.form-control:focus~.highlight {
     }
 }
 
-$md-radio-checked-color: $green;
+$md-radio-checked-color: $main;
 $md-radio-border-color: rgba(0, 0, 0, 0.54);
 $md-radio-size: 20px;
 $md-radio-checked-size: 10px;
