@@ -78,7 +78,10 @@ const initMapboxDirections = () => {
             /^([-+]?)([\d]{1,2})(((\.)(\d+)(,)))(\s*)(([-+]?)([\d]{1,3})((\.)(\d+))?)$/g
           )
         ) {
-          name = `: موقع المغادرة ${origin.value}`;
+          name =
+            mapElement.dataset.locale === "ar"
+              ? `: موقع المغادرة ${origin.value}`
+              : `localisation de départ: ${origin.value}`;
         }
         document.getElementById("current-position").classList.add("hidden");
         originValue = {
@@ -104,7 +107,10 @@ const initMapboxDirections = () => {
             /^([-+]?)([\d]{1,2})(((\.)(\d+)(,)))(\s*)(([-+]?)([\d]{1,3})((\.)(\d+))?)$/g
           )
         ) {
-          name = `: موقع الوصول ${destination.value}`;
+          name =
+            mapElement.dataset.locale === "ar"
+              ? `: موقع الوصول ${destination.value}`
+              : `localisation d'arrivé: ${origin.value}`;
         }
         destinationValue = {
           name: name,

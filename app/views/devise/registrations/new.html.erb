@@ -1,8 +1,9 @@
 <section id="login">
   <div class="login-wrapper">
-    <h2>تشجل</h2>
+    <h2><%= t('signup.title') %></h2>
     <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
       <%= f.error_notification %>
+      <%= hidden_field_tag 'locale', I18n.locale %>
       <div class="form-inputs">
         <div class="group">
           <%= f.input :first_name,
@@ -10,7 +11,7 @@
                       autofocus: true , wrapper: false, label: false%>
           <span class="highlight"></span>
           <span class="bar"></span>
-          <%= f.label :first_name, label: 'سمیتك', class: 'material' %>
+          <%= f.label :first_name, label: t('signup.first_name'), class: 'material' %>
         </div>
         <div class="group">
           <%= f.input :last_name,
@@ -18,7 +19,7 @@
                       autofocus: true , wrapper: false, label: false%>
           <span class="highlight"></span>
           <span class="bar"></span>
-          <%= f.label :last_name, label: 'كنیتك', class: 'material' %>
+          <%= f.label :last_name, label: t('signup.last_name'), class: 'material' %>
         </div>
         <div class="group">
           <%= f.input :country_code, as: :select,  input_html: {id: 'authy-countries', data: {show_as: 'number', value: '+212'}},
@@ -26,7 +27,7 @@
                       autofocus: true , wrapper: false, label: false%>
           <span class="highlight"></span>
           <span class="bar"></span>
-          <%= f.label :country_code, for: 'country-code-0', label: 'الكود دیال لبلاد', class: 'material' %>
+          <%= f.label :country_code, for: 'country-code-0', label: t('signup.country_code'), class: 'material' %>
         </div>
         <div class="group">
           <%= f.input :phone,
@@ -34,7 +35,7 @@
                       autofocus: true , wrapper: false, label: false%>
           <span class="highlight"></span>
           <span class="bar"></span>
-          <%= f.label :phone, label: 'نمرة دیال تلفون', class: 'material' %>
+          <%= f.label :phone, label: t('signup.phone'), class: 'material' %>
         </div>
         <div class="group">
           <%= f.input :password,
@@ -43,7 +44,7 @@
                       autofocus: true, wrapper: false, label: false %>
           <span class="highlight"></span>
           <span class="bar"></span>
-          <%= f.label :password, label: 'الكود', class: 'material' %>
+          <%= f.label :password, label: t('signup.password'), class: 'material' %>
         </div>
         <div class="group">
           <%= f.input :password_confirmation,
@@ -52,11 +53,11 @@
                       autofocus: true, wrapper: false, label: false %>
           <span class="highlight"></span>
           <span class="bar"></span>
-          <%= f.label :password_confirmation, label: 'عاود الكود', class: 'material' %>
+          <%= f.label :password_confirmation, label: t('signup.confirmation'), class: 'material' %>
         </div>
       </div>
       <div class="form-actions flex-center">
-        <%= f.button :submit, "تشجل", class: 'btn btn-lg btn-success btn-rCab' %>
+        <%= f.button :submit, t('signup.submit'), class: 'btn btn-lg btn-success btn-rCab' %>
       </div>
     <% end %>
     <%= render "devise/shared/links" %>

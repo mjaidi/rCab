@@ -3,6 +3,26 @@ fr:
   ar: "morocco.png"
   lang_fr: "Français"
   lang_ar: "العربية"
+  devise:
+    signin: "Se connécter"
+    signup: "S'inscrire"
+    forgot_password: "Mot de passe oublié?"
+    confirmation_instructions: "Didn't receive confirmation instructions?"
+  signin:
+    title: "Se connécter"
+    phone: "Numéro de téléphone "
+    password: "Mot de passe"
+    remember: "Se souvenir de moi"
+    submit: "Se connécter"
+  signup:
+    title: "S'inscrire"
+    first_name: "Prénom"
+    last_name: "Nom"
+    country_code: "Code pays"
+    phone: "Numéro de téléphone"
+    password: "Mot de passe"
+    confirmation: "Confirmer mot de passe"
+    submit: "S'inscrire"
   navbar:
     logout: "déconnexion"
     demandes: "Demandes en Cours"

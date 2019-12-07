@@ -2,6 +2,7 @@
   <div class="login-wrapper">
     <h2>Vérifier téléphone</h2>
     <%= form_tag(phone_verifications_path, method: :post) do -%>
+      <%= hidden_field_tag 'locale', I18n.locale %>
       <% if @response %>
         <% @response.errors.each do |key, message| %>
           <p><%= message %></p>

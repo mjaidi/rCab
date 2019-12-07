@@ -3,6 +3,26 @@ ar:
   ar: "morocco.png"
   lang_fr: "Français"
   lang_ar: "العربية"
+  devise:
+    signin: "تكونیكطا"
+    signup: "تشجل"
+    forgot_password: "نسیت لكود"
+    confirmation_instructions: "Didn't receive confirmation instructions?"
+  signin:
+    title: "تكونیكطا"
+    phone: "نمرة تلیفون"
+    password: "لكود"
+    remember: "تفكرني"
+    submit: "دخل"
+  signup:
+    title: "تشجل"
+    first_name: "سمیتك"
+    last_name: "كنیتك"
+    country_code: "الكود دیال لبلاد"
+    phone: "نمرة دیال تلفون"
+    password: "الكود"
+    confirmation: "عاود الكود"
+    submit: "تشجل"
   navbar:
     logout: "déconnexion"
     demandes: "الكورصات الحالية"
