@@ -34,7 +34,10 @@ ar:
   home:
     banner_title1: "ركب"
     banner_subtitle1: "رحلة بعد رحلة باش نسهلو حياتك"
+    banner_title2: "rCab"
+    banner_subtitle2: "Vous voulez devenir chauffeur?"
     new_course_btn: "سافر دابا"
+    new_driver_btn: "Devenir Chauffeur"
     why:
       title: "علاش ركاب"
       card1: "أحسن طريقة باش اتنقل في المدينة هي بالمطور ، ما كاين لا الزحام لا تعطال ولا تبقى تساين ,كنواعدوك"

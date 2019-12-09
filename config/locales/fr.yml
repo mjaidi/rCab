@@ -34,17 +34,20 @@ fr:
   home:
     banner_title1: "rCab"
     banner_subtitle1: "Commencez votre course dès aujourd'hui"
+    banner_title2: "rCab"
+    banner_subtitle2: "Vous voulez devenir chauffeur?"
     new_course_btn: "Nouvelle course"
+    new_driver_btn: "Devenir Chauffeur"
     why:
       title: "Pourquoi rCab"
       card1: "Meilleur service pourquoi rCab"
       card2: "Meilleur tarifs pourqhoi rCab"
     how:
-      title: "Pourquoi rCab?"
-      card1: "something why rcab1"
-      card2: "something why rcab1"
-      card3: "something why rcab1"
-      card4: "something why rcab1"
+      title: "Comment ça marche?"
+      card1: "something how rcab1"
+      card2: "something how rcab1"
+      card3: "something how rcab1"
+      card4: "something how rcab1"
   dashboard:
     title: "Tableau de Bord"
     new_course_btn: "Nouvelle Course"

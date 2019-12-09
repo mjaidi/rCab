@@ -1,0 +1,36 @@
+<div id="home-carousel" class="carousel slide carousel-fade" data-ride="carousel" >
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <div class="banner-gradient">
+        <%= image_tag 'scooter_2' %>
+      </div>
+      <div class="banner-content">
+        <h1><%= t('home.banner_title1') %></h1>
+        <h4><%= t('home.banner_subtitle1') %></h4>
+        <% if !user_signed_in? || policy(Course).new? %>
+          <%= link_to t('home.new_course_btn'), new_course_path(I18n.locale), class: 'btn btn-success btn-rCab' %>
+        <% end %>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <div class="banner-gradient">
+        <%= image_tag 'scooter' %>
+      </div>
+      <div class="banner-content">
+        <h1><%= t('home.banner_title2') %></h1>
+        <h4><%= t('home.banner_subtitle2') %></h4>
+        <% if !user_signed_in?  %>
+          <%= link_to t('home.new_driver_btn'), "/#{I18n.locale}#{new_registration_path(:user)}?driver=1", class: 'btn btn-success btn-rCab' %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <a class="carousel-control-prev" href="#home-carousel" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#home-carousel" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>

@@ -270,3 +270,11 @@ $md-radio-ripple-size: 15px;
 .material__textarea {
     height: 150px;
 }
+
+.was-validated .form-check-input:valid~.form-check-label,
+.form-check-input.is-valid~.checkbox-label {
+    color: $gray;
+    a {
+        color: $main;
+    }
+}

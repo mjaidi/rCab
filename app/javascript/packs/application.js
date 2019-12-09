@@ -7,6 +7,7 @@ import initMapboxDirections from "../plugins/init_directions";
 import "../cable/course";
 import "../plugins/rating";
 import "../plugins/input_file";
+import "../components/signup";
 
 // initMapbox();
 // initAutocomplete();
