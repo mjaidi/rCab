@@ -9,7 +9,7 @@
       <% @courses.each do |course| %>
         <div class="col-12 col-md-4">
           <%= link_to driver_course_path(I18n.locale,course) do %>
-            <div class="card">
+            <div class="card <%='rtl' if I18n.locale == :ar%> ">
               <h6>
                 <%= course.created_at.strftime('%d/%m/%y') %> - <%=course.created_at.strftime('%R') %>
               </h6>
@@ -35,20 +35,20 @@
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-header bg-success text-white">
-        <h5 class="modal-title" id="driverTotalLabel">Total</h5>
+        <h5 class="modal-title" id="driverTotalLabel"><%= t('driver_dashboard.total_courses') %></h5>
         <button data-dismiss= 'modal' class= 'close'>
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body text-center">
-        <h5>Nombre de courses</h5>
+        <h5><%= t('driver_dashboard.nb_courses') %></h5>
         <p><%= @courses.count %></p>
         <br>
-        <h5>Total CA</h5>
+        <h5><%= t('driver_dashboard.total_ca') %></h5>
         <p><%= @total_courses %> DH</p>
       </div>
       <div class="modal-footer">
-        <button data-dismiss= 'modal' class= 'btn btn-success btn-rCab btn-rCab__sm' >Ok</button>
+        <button data-dismiss= 'modal' class= 'btn btn-success btn-rCab btn-rCab__sm' ><%= t('driver_dashboard.ok') %></button>
       </div>
     </div>
   </div>

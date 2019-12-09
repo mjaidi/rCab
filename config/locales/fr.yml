@@ -24,10 +24,17 @@ fr:
     confirmation: "Confirmer mot de passe"
     submit: "S'inscrire"
   navbar:
-    logout: "déconnexion"
+    logout: "Déconnexion"
     demandes: "Demandes en Cours"
     dashboard: "Tableau de Bord"
     login: "Se connécter"
+    become_driver: "Devenir chauffeur"
+    profile: "Mon profile"
+    about: "A propos"
+    services: "Nos services"
+    security: "Sécurité"
+    cgu: "CGU"
+    support: "Support téchnique"
   footer:
     policy: "CGU"
     security: "Sécurité"
@@ -53,6 +60,10 @@ fr:
     new_course_btn: "Nouvelle Course"
   driver_dashboard:
     check_total: "Voir total"
+    total_courses: "Total"
+    nb_courses: "Nombre de courses"
+    total_ca: "Total chiffre d'affaire"
+    ok: "Ok"
   demandes:
     title: "Demandes en cours"
     select_course: "Accépter course"

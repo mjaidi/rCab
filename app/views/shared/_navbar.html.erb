@@ -1,5 +1,6 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+<nav class="navbar navbar-expand-sm navbar-light <%='rtl' if I18n.locale == :ar%> ">
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class='close-menu'>X</span>
     <span class="navbar-toggler-icon"></span>
   </button>
   <%= link_to root_path(I18n.locale), class: "navbar-brand" do %>
@@ -20,12 +21,28 @@
             <%= link_to t('navbar.dashboard'), dashboard_path(I18n.locale), class: "nav-link" %>
           </li>
         <% end %>
+        <li class='nav-item mobile-only'>
+          <%= link_to t("navbar.about"), about_path(I18n.locale), class: "nav-link" %>
+        </li>
+        <li class='nav-item mobile-only'>
+          <%= link_to t("navbar.services"), services_path(I18n.locale), class: "nav-link" %>
+        </li>
+        <li class='nav-item mobile-only'>
+          <%= link_to t("navbar.support"), support_path(I18n.locale), class: "nav-link" %>
+        </li>
+        <li class='nav-item mobile-only'>
+          <%= link_to t("navbar.cgu"), cgu_path(I18n.locale), class: "nav-link" %>
+        </li>
+        <li class='nav-item mobile-only'>
+          <%= link_to t("navbar.security"), security_path(I18n.locale), class: "nav-link" %>
+        </li>
         <li class="nav-item dropdown">
           <% if current_user.photo.blank? %>
-            <%= image_tag 'avatar.png', class: 'avatar-large dropdown-toggle', id: "navbarDropdown", data: {toggle: "dropdown"} %>
+            <%= image_tag 'avatar.png', class: 'avatar dropdown-toggle', id: "navbarDropdown", data: {toggle: "dropdown"} %>
           <% else %>
-            <%= cl_image_tag current_user.photo, width: 40, height: 40, crop: :thumb, gravity: :face, class: "avatar-large dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false%>
+            <%= cl_image_tag current_user.photo, width: 40, height: 40, crop: :thumb, gravity: :face, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false%>
           <% end %>
+          <span class='dropdown-toggle' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false' id='navbarDropdown'><%= t('navbar.profile') %></span>
           <div class="dropdown-menu dropdown-menu-left" aria-labelledby="navbarDropdown">
             <%= link_to t('navbar.logout'), destroy_user_session_path(I18n.locale), method: :delete, class: "dropdown-item" %>
           </div>
@@ -35,12 +52,13 @@
           <%= link_to t("navbar.login"), new_user_session_path(I18n.locale), class: "nav-link" %>
         </li>
         <li class="nav-item">
-          <%= link_to t('navbar.login'), new_user_session_path(I18n.locale), class: "nav-link" %>
+          <%= link_to t('navbar.become_driver'), "/#{I18n.locale}#{new_registration_path(:user)}?driver=1", class: "nav-link" %>
           <!-- TODO ajouter le type de client dans le form-->
         </li>
       <% end %>
       <li class="nav-item dropdown">
         <%= image_tag t(I18n.locale), class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+        <span class='dropdown-toggle' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false' id='navbarDropdown'>  <%= t("lang_#{I18n.locale.to_s}") %></span>
         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
           <% I18n.available_locales.each do |lang| %>
             <%= link_to lang_path(I18n.locale, lang), class: "dropdown-item" do %>
@@ -51,4 +69,4 @@
       </li>
     </ul>
   </div>
-</div>
+</nav>

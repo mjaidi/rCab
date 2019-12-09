@@ -1,7 +1,7 @@
 <div class="row">
   <div class="col-12 col-md-4-offset">
     <% if course.status != 'search' && course.driver != nil%>
-      <div class="card">
+      <div class="card <%='rtl' if I18n.locale == :ar%> ">
         <div class="flex-center">
           <% if course.driver.photo.blank? %>
             <%= image_tag 'avatar.png', class: "avatar-large-bordered" %>
@@ -54,25 +54,25 @@
       <%= t('course_status.finished') %>
     </div>
     <% if course.status == 'finished' %>
-    <div id="notes" class='my-5'>
+    <div id="notes" class="my-5 <%='rtl' if I18n.locale == :ar%> ">
       <div id="note<%=course.note%>">
       <%= simple_form_for course, url: course_path(I18n.locale, course), authenticity_token: false do |f| %>
       <input type="hidden" name="authenticity_token" id="authenticity_token" value="<%= form_authenticity_token()%>" />
-            <h5 class='home-title'><%= t('comment_form.title') %></h5>
-            <div class="my-5 flex-center">
-              <div id='rating-note'></div>
-            </div>
-            <%= f.input :note,  as: :hidden, collection: Course::NOTES  %>
-            <div class="group">
-              <%= f.input :comment, input_html: {class: 'material__textarea'}, label: false, autofocus: true , wrapper: false  %>
-              <span class="highlight"></span>
-              <span class="bar"></span>
-              <%= f.label :comment, label: t('comment_form.comment'), class: 'material' %>
-            </div>
-            <%= f.button :submit, class: 'btn btn-success  btn-block btn-rCab  btn-rCab__sm', value: t('comment_form.submit')%>
-          <% end %>
-        </div>
+      <h5 class='home-title'><%= t('comment_form.title') %></h5>
+      <div class="my-5 flex-center">
+        <div id='rating-note'></div>
       </div>
+      <%= f.input :note,  as: :hidden, collection: Course::NOTES  %>
+      <div class="group">
+        <%= f.input :comment, input_html: {class: 'material__textarea'}, label: false, autofocus: true , wrapper: false  %>
+        <span class="highlight"></span>
+        <span class="bar"></span>
+        <%= f.label :comment, label: t('comment_form.comment'), class: 'material' %>
+      </div>
+      <%= f.button :submit, class: 'btn btn-success  btn-block btn-rCab  btn-rCab__sm', value: t('comment_form.submit')%>
     <% end %>
   </div>
+</div>
+<% end %>
+</div>
 </div>

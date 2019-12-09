@@ -2,7 +2,7 @@
   <div class="container">
     <div class="row">
       <div class="col-12 col-md-4-offset">
-        <div class="card">
+        <div class="card <%='rtl' if I18n.locale == :ar%> ">
           <div class="flex-center">
             <% if @course.client.photo.blank? %>
               <img src="https://hadeplatform.com/img/default.png" class="avatar-large-bordered">

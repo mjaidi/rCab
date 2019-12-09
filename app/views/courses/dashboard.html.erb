@@ -8,7 +8,7 @@
       <% @courses.each do |course| %>
         <div class="col-12 col-md-4">
           <%= link_to client_course_path(I18n.locale, course) do %>
-            <div class="card">
+            <div class="card <%='rtl' if I18n.locale == :ar%>">
               <h6>
                 <%= course.created_at.strftime('%d/%m/%y') %> - <%=course.created_at.strftime('%R') %>
               </h6>
