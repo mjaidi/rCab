@@ -12,7 +12,7 @@ class PhoneVerificationsController < ApplicationController
       phone_number: params[:phone_number]
     )
     if @response.ok?
-      redirect_to challenge_phone_verifications_path
+      redirect_to challenge_phone_verifications_path(I18n.locale)
     else
       render :new
     end
@@ -30,7 +30,7 @@ class PhoneVerificationsController < ApplicationController
     if @response.ok?
       current_user.verified = true
       current_user.save
-      redirect_to root_path, notice: 'Félicitations votre numéro à bien été vérifié'
+      redirect_to root_path(I18n.locale), notice: 'Félicitations votre numéro à bien été vérifié'
     else
       render :challenge
     end

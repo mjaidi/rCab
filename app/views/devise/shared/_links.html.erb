@@ -1,25 +1,20 @@
 <%- if controller_name != 'sessions' %>
-  <%= link_to "تكونیكطا", new_session_path(resource_name) %><br />
+  <%= link_to t('devise.signin'), "/#{I18n.locale}#{new_session_path(resource_name)}" %><br />
 <% end %>
-
 <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
-  <%= link_to "تشجل", new_registration_path(resource_name) %><br />
+  <%= link_to t('devise.signup'), "/#{I18n.locale}#{new_registration_path(resource_name)}" %><br />
 <% end %>
-
 <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
-  <%= link_to "نسیت لكود", new_password_path(resource_name) %><br />
+  <%= link_to t('devise.forgot_password'), "/#{I18n.locale}#{new_password_path(resource_name)}" %><br />
 <% end %>
-
 <%- if devise_mapping.confirmable? && controller_name != 'confirmations' %>
-  <%= link_to "Didn't receive confirmation instructions?", new_confirmation_path(resource_name) %><br />
+  <%= link_to t('devise.confirmation_instructions'),"/#{I18n.locale}#{new_confirmation_path(resource_name)}" %><br />
 <% end %>
-
 <%- if devise_mapping.lockable? && resource_class.unlock_strategy_enabled?(:email) && controller_name != 'unlocks' %>
-  <%= link_to "Didn't receive unlock instructions?", new_unlock_path(resource_name) %><br />
+  <%= link_to "Didn't receive unlock instructions?",  "/#{I18n.locale}#{new_unlock_path(resource_name)}"  %><br />
 <% end %>
-
 <%- if devise_mapping.omniauthable? %>
   <%- resource_class.omniauth_providers.each do |provider| %>
-    <%= link_to "Sign in with #{OmniAuth::Utils.camelize(provider)}", omniauth_authorize_path(resource_name, provider) %><br />
+    <%= link_to "Sign in with #{OmniAuth::Utils.camelize(provider)}", "/#{I18n.locale}#{omniauth_authorize_path(resource_name, provider)}"  %><br />
   <% end %>
 <% end %>

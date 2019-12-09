@@ -1,7 +1,9 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
+  before_action :set_locale
   before_action :authenticate_user!
   before_action :configure_permitted_parameters, if: :devise_controller?
+
   include Pundit
 
   # Pundit: white-list approach.
@@ -12,7 +14,7 @@ class ApplicationController < ActionController::Base
   rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
   def user_not_authorized
     flash[:alert] = "Vous n'êtes pas autorisé a éffectuer cette action."
-    redirect_to(root_path)
+    redirect_to(root_path(I18.locale))
   end
 
   # Devise Signup parameters update
@@ -21,6 +23,20 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit :sign_up, keys: added_attrs
     devise_parameter_sanitizer.permit :account_update, keys: added_attrs
     devise_parameter_sanitizer.permit :sign_in, keys: added_attrs
+  end
+
+  protected
+
+  def after_sign_in_path_for(resource)
+    root_path(I18n.locale)
+  end
+
+  def after_sign_out_path_for(resource)
+    root_path(I18n.locale)
+  end
+
+  def set_locale
+    I18n.locale = params[:locale] || I18n.default_locale
   end
 
   private

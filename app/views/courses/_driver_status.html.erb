@@ -1,34 +1,34 @@
 <% if course.status == 'accepted' %>
-<div class="row">
-  <div class="col-12 col-md-4-offset">
-    <div class=" flex-center btn btn-lg btn-status">
-      فطريق عند لكليان
+  <div class="row">
+    <div class="col-12 col-md-4-offset">
+      <div class=" flex-center btn btn-lg btn-status">
+        <%= t('course_status.accepted') %>
+      </div>
     </div>
   </div>
-</div>
-<div class="row">
-  <div class="col-12 col-md-4-offset">
-    <div class="flex-center my-5">
-      <%= link_to "وصلت عند لكليان", start_course_path(course), class: "btn btn-lg btn-success btn-rCab", remote: true %>
+  <div class="row">
+    <div class="col-12 col-md-4-offset">
+      <div class="flex-center my-5">
+        <%= link_to t('course_status.arrived'), start_course_path(I18n.locale,course), class: "btn btn-lg btn-success btn-rCab", remote: true %>
+      </div>
     </div>
   </div>
-</div>
 <% end %>
 <% if course.status == 'arrived' %>
-<div class="row">
-  <div class="col-12 col-md-4-offset">
-    <div class="flex-center my-5">
-      <%= link_to "الكورصة سلات", end_course_path(course), class: "btn btn-lg btn-success btn-rCab", remote: true %>
+  <div class="row">
+    <div class="col-12 col-md-4-offset">
+      <div class="flex-center my-5">
+        <%= link_to t('course_status.finished'), end_course_path(I18n.locale,course), class: "btn btn-lg btn-success btn-rCab", remote: true %>
+      </div>
     </div>
   </div>
-</div>
 <% end %>
 <% if course.status == 'finished' %>
-<div class="row">
-  <div class="col-12 col-md-4-offset">
-    <div class=" flex-center btn btn-lg btn-status">
-      الكورصة سلات
+  <div class="row">
+    <div class="col-12 col-md-4-offset">
+      <div class=" flex-center btn btn-lg btn-status">
+        <%= t('course_status.finished') %>
+      </div>
     </div>
   </div>
-</div>
 <% end %>

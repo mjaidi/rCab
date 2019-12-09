@@ -19,8 +19,9 @@ const initMapboxDirections = () => {
       accessToken: mapboxgl.accessToken,
       styles: style,
       unit: "metric",
-      placeholderOrigin: "منین",
-      placeholderDestination: "تالین",
+      placeholderOrigin: mapElement.dataset.locale === "ar" ? "منین" : "Départ",
+      placeholderDestination:
+        mapElement.dataset.locale === "ar" ? "تالین" : "Arrivé",
       controls: {
         instructions: false,
         profileSwitcher: false
@@ -77,7 +78,10 @@ const initMapboxDirections = () => {
             /^([-+]?)([\d]{1,2})(((\.)(\d+)(,)))(\s*)(([-+]?)([\d]{1,3})((\.)(\d+))?)$/g
           )
         ) {
-          name = `: موقع المغادرة ${origin.value}`;
+          name =
+            mapElement.dataset.locale === "ar"
+              ? `: موقع المغادرة ${origin.value}`
+              : `localisation de départ: ${origin.value}`;
         }
         document.getElementById("current-position").classList.add("hidden");
         originValue = {
@@ -103,7 +107,10 @@ const initMapboxDirections = () => {
             /^([-+]?)([\d]{1,2})(((\.)(\d+)(,)))(\s*)(([-+]?)([\d]{1,3})((\.)(\d+))?)$/g
           )
         ) {
-          name = `: موقع الوصول ${destination.value}`;
+          name =
+            mapElement.dataset.locale === "ar"
+              ? `: موقع الوصول ${destination.value}`
+              : `localisation d'arrivé: ${origin.value}`;
         }
         destinationValue = {
           name: name,

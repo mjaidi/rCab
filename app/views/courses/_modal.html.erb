@@ -3,18 +3,18 @@
   <div class="modal-dialog  modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-header bg-success text-white">
-        <h5 class="modal-title" id="validatePriceLabel">الرحلة أكد</h5>
-        <%= link_to course_path(course), method: 'delete', data: {dismiss: 'modal'}, class: 'close' do %>
-            <span aria-hidden="true">&times;</span>
+        <h5 class="modal-title" id="validatePriceLabel"><%= t('validate_price.title') %></h5>
+        <%= link_to course_path(I18n.locale,course), method: 'delete', data: {dismiss: 'modal'}, class: 'close' do %>
+          <span aria-hidden="true">&times;</span>
         <% end %>
       </div>
       <div class="modal-body text-center">
-        <h5>تمن الرحلة</h5>
+        <h5><%= t('validate_price.price') %></h5>
         <p><%= course.price %> DH</p>
       </div>
       <div class="modal-footer">
-        <%= link_to 'لغي', course_path(course), method: 'delete', class: 'btn btn-secondary' %>
-        <%= link_to 'أكد', set_price_course_path(course), method: 'patch', class: 'btn btn-success btn-rCab btn-rCab__sm' %>
+        <%= link_to t('validate_price.cancel'), course_path(I18n.locale,course), method: 'delete', class: 'btn btn-secondary' %>
+        <%= link_to t('validate_price.validate'), set_price_course_path(I18n.locale,course), method: 'patch', class: 'btn btn-success btn-rCab btn-rCab__sm' %>
       </div>
     </div>
   </div>

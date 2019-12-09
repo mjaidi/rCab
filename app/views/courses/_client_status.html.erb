@@ -1,34 +1,35 @@
 <div class="row">
   <div class="col-12 col-md-4-offset">
-    <% if course.status != 'search'%>
+    <% if course.status != 'search' && course.driver != nil%>
       <div class="card">
         <div class="flex-center">
           <% if course.driver.photo.blank? %>
-            <img src="https://hadeplatform.com/img/default.png" class="avatar-large-bordered">
+            <%= image_tag 'avatar.png', class: "avatar-large-bordered" %>
           <% else %>
             <%= cl_image_tag course.driver.photo, width: 500, height: 500, crop: :thumb, gravity: :face, class: "avatar-large-bordered" %>
           <% end %>
         </div>
         <div class="driver-info">
-          <h4>مول الموطور</h4>
-          <%= card_content_p(': سمیة', "#{@course.driver.first_name} #{@course.driver.last_name}") %>
-          <%= card_content_p(': تلیفون', @course.driver.phone) %>
-          <%= card_content_p(': المتريكول', @course.driver.id) %>
+          <h4><%= t('driver_card.title') %></h4>
+          <%= card_content_p(t('driver_card.name'), "#{@course.driver.first_name} #{@course.driver.last_name}") %>
+          <%= card_content_p(t('driver_card.phone'), @course.driver.phone) %>
+          <%= card_content_p(t('driver_card.id'), @course.driver.id) %>
           <div class="flex-center">
             <div class="course-note" data-note='<%=@course.driver.average_note%>'></div>
               </div>
         </div>
+
         <div class="course-info">
-          <h4>الرحلة</h4>
-          <%= card_content_p(': منین', @course.start_address) %>
-          <%= card_content_p(': تالین', @course.end_address) %>
-          <%= card_content_p(': شحال دیال الوقت', "دقائق #{@course.duration.round}") %>
-          <%= card_content_p(': التمن', @course.price) %>
+          <h4><%= t('course_card.title') %></h4>
+          <%= card_content_p(t('course_card.start_address'), @course.start_address) %>
+          <%= card_content_p(t('course_card.end_address'), @course.end_address) %>
+          <%= card_content_p(t('course_card.duration'), "min #{@course.duration.round}") %>
+          <%= card_content_p(t('course_card.price'), @course.price) %>
         </div>
       </div>
     <% else %>
     <div class=" flex-center btn btn-lg btn-success btn-status btn-status-active">
-      كنقلبو على الموطور لقریب
+      <%= t('course_status.search') %>
     </div>
     <% end %>
   </div>
@@ -36,28 +37,28 @@
 <div class="row">
   <div class="col-12 col-md-4-offset">
     <div class=" flex-center btn btn-lg btn-success btn-status <%= 'btn-status-active' if course.status == 'accepted'%>">
-      لي فطریق راه جاي علیك
+      <%= t('course_status.accepted') %>
     </div>
     </div>
   </div>
 <div class="row">
   <div class="col-12 col-md-4-offset">
     <div class=" flex-center btn btn-lg btn-success btn-status <%= 'btn-status-active' if course.status == 'arrived'%>"">
-      وصل الموطور
+      <%= t('course_status.arrived') %>
     </div>
     </div>
   </div>
 <div class="row">
   <div class="col-12 col-md-4-offset">
     <div class=" flex-center btn btn-lg btn-success btn-status <%= 'btn-status-active' if course.status == 'finished'%>"">
-      وصلتي على خیر
+      <%= t('course_status.finished') %>
     </div>
     <% if course.status == 'finished' %>
     <div id="notes" class='my-5'>
       <div id="note<%=course.note%>">
-      <%= simple_form_for course, url: course_path(course), authenticity_token: false do |f| %>
+      <%= simple_form_for course, url: course_path(I18n.locale, course), authenticity_token: false do |f| %>
       <input type="hidden" name="authenticity_token" id="authenticity_token" value="<%= form_authenticity_token()%>" />
-            <h5 class='home-title'>كیجاتك الرحلة</h5>
+            <h5 class='home-title'><%= t('comment_form.title') %></h5>
             <div class="my-5 flex-center">
               <div id='rating-note'></div>
             </div>
@@ -66,9 +67,9 @@
               <%= f.input :comment, input_html: {class: 'material__textarea'}, label: false, autofocus: true , wrapper: false  %>
               <span class="highlight"></span>
               <span class="bar"></span>
-              <%= f.label :commennt, label: 'عندك شي ملاحظة', class: 'material' %>
+              <%= f.label :comment, label: t('comment_form.comment'), class: 'material' %>
             </div>
-            <%= f.button :submit, class: 'btn btn-success  btn-block btn-rCab  btn-rCab__sm', value: "صیفط"%>
+            <%= f.button :submit, class: 'btn btn-success  btn-block btn-rCab  btn-rCab__sm', value: t('comment_form.submit')%>
           <% end %>
         </div>
       </div>
