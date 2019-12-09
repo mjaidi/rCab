@@ -35,7 +35,7 @@ class CoursesController < ApplicationController
     @course = Course.new
     authorize @course
     unless current_user.verified
-      redirect_to new_phone_verification_path, alert: 'Vous devez vérifier votre numéro pour continuer'
+      redirect_to new_phone_verification_path(I18n.locale), alert: 'Vous devez vérifier votre numéro pour continuer'
     end
   end
 
