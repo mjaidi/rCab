@@ -72,7 +72,7 @@ fr:
     start_address: "Départ :"
     end_address: "Arrivé :"
     price: "Prix :"
-    duration: "Durée :"
+    distance: "Distance :"
   driver_card:
     title: "Votre Chauffeur"
     name: "nom :"

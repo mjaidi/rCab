@@ -125,6 +125,9 @@
              display: block
          }
      }
+     .desktop-only {
+         display: none
+     }
  }
  
  @media(min-width: 600px) {

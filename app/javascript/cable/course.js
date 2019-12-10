@@ -1,9 +1,13 @@
 import createChannel from "./setup";
 const main = document.getElementById("course-status");
+const available_langs = ["fr", "ar"];
+const lang = available_langs.includes(window.location.pathname.substr(1, 2))
+  ? window.location.pathname.substr(1, 2)
+  : "ar";
 
 if (main) {
-  const room = createChannel(
-    { channel: "CourseChannel", id: main.dataset.id },
+  createChannel(
+    { channel: "CourseChannel", id: main.dataset.id, lang: lang },
     {
       received({ driver_status, client_status }) {
         if (main.dataset.user === "driver") {

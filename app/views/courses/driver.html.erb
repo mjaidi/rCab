@@ -19,7 +19,7 @@
             <h4><%= t('course_card.title') %></h4>
             <%= card_content_p(t('course_card.start_address'), @course.start_address) %>
             <%= card_content_p(t('course_card.end_address'), @course.end_address) %>
-            <%= card_content_p(t('course_card.duration'), "min #{@course.duration.round}") %>
+            <%= card_content_p(t('course_card.distance'), "#{@course.distance.round} km") %>
             <%= card_content_p(t('course_card.price'), @course.price) %>
           </div>
         </div>
