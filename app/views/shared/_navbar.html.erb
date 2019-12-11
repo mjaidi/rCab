@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-sm navbar-light <%='rtl' if I18n.locale == :ar%> ">
-  <div class="d-none" id="navbar-subscriber" data-driver="<%=current_user.driver ? '1' : "0"%>"></div>
+  <div class="d-none" id="navbar-subscriber" data-driver="<%=current_user && current_user.driver ? '1' : "0"%>"></div>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class='close-menu'>X</span>
     <span class="navbar-toggler-icon"></span>
@@ -7,7 +7,7 @@
   <%= link_to root_path(I18n.locale), class: "navbar-brand" do %>
     <%= image_tag "rcab-logo.jpg", class: "avatar-large", alt: "rcab"  %>
   <% end %>
-  <% if current_user.driver %>
+  <% if current_user && current_user.driver %>
     <div class="mobile-only">
       <%= render 'shared/notifications', position: '' %>
     </div>
@@ -73,7 +73,7 @@
           <% end %>
         </div>
       </li>
-      <% if current_user.driver %>
+      <% if current_user && current_user.driver %>
         <li class="nav-item dropdown desktop-only">
           <%= render 'shared/notifications', position: (I18n.locale == :ar ? 'left' : 'right') %>
         </li>

@@ -1,9 +1,10 @@
 <div id='notifications'>
+  <% notifications = policy_scope(Course).select{ |course| course.status == "search" } %>
   <a class="nav-link text-light"  id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    <i class="fa fa-bell"></i>
-    (<span id='notification-count'><%= render 'shared/notifications_count'%></span>)
+    <i class="fa fa-bell" id='bell'></i>
+    (<span id='notification-count'><%= render 'shared/notifications_count', notifications: notifications %></span>)
   </a>
   <ul class="dropdown-menu  <%= position == 'right' ? 'dropdown-menu-right' : position == 'left' ? 'dropdown-menu-left' : ''%>" id='notification-content'>
-    <%= render 'shared/notifications_content' %>
+    <%= render 'shared/notifications_content', notifications: notifications %>
   </ul>
 </div>

@@ -138,6 +138,7 @@ class CoursesController < ApplicationController
 
     def broadcast_new_course
       # broadcast course for each language, then pick up depending on subscription params
+      @notifications = Course.where(status: 'search').order(created_at: :desc)
       I18n.available_locales.each do |l|
         I18n.with_locale(l) do
           ActionCable.server.broadcast "new_course_channel_drivers_#{1}_#{l}",
@@ -149,10 +150,11 @@ class CoursesController < ApplicationController
     end
 
     def renter_notification_count
-      render_to_string(partial: 'shared/notifications_count')
+      render_to_string(partial: 'shared/notifications_count', locals: { notifications: @notifications})
     end
 
     def render_notification_content
-      render_to_string(partial: 'shared/notifications_content')
+      render_to_string(partial: 'shared/notifications_content', locals: { notifications: @notifications}
+      )
     end
 end
