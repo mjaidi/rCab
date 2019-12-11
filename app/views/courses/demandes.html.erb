@@ -4,22 +4,14 @@
     <div class="row">
       <% @courses.each do |course| %>
         <div class="col-12 col-md-4">
-          <div class="card">
-            <h6>
-              <strong><%= course.created_at.strftime('%d/%m/%y') %> - <%=course.created_at.strftime('%R') %></strong>
-            </h6>
-            <%= card_content_p(t('course_card.start_address'), course.start_address) %>
-            <%= card_content_p(t('course_card.end_address'), course.end_address) %>
-            <%= card_content_p(t('course_card.price'), course.price.round(2)) %>
-            <%= card_content_p(t('course_card.duration'), course.duration.round(2)) %>>
+          <%= render 'courses/course_card', course: course do %>
             <div class="flex-center" style="margin-top: 16px;">
-              <%= link_to t('demandes.select_course'), select_course_path(I18n.locale,course), class: "btn btn-lg btn-success btn-rCab btn-rCab__sm"%>
+              <%= link_to t('demandes.select_course'), select_course_path(I18n.locale,course), class: "btn btn-success btn-rCab btn-rCab__sm"%>
             </div>
-          </div>
+          <% end %>
         </div>
       <% end %>
     </div>
   </div>
 </section>
 <br>
-<%#= link_to 'New Course', new_course_path %>

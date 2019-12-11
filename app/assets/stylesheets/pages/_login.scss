@@ -12,6 +12,7 @@
             font-weight: bold;
             text-align: center;
             margin-bottom: 3rem;
+            font-size: 30px;
         }
     }
 }
@@ -269,4 +270,45 @@ $md-radio-ripple-size: 15px;
 
 .material__textarea {
     height: 150px;
+}
+
+.was-validated .form-check-input:valid~.form-check-label,
+.form-check-input.is-valid~.checkbox-label {
+    color: $gray;
+    a {
+        color: $main;
+    }
+}
+
+#login.rtl {
+    text-align: right;
+    label.material {
+        right: 0;
+        left: auto;
+    }
+    .countries-input {
+        text-align: right;
+    }
+    .form-check {
+        width: auto;
+        input {
+            float: right;
+            position: relative;
+            top: 0.3rem;
+        }
+        label {
+            width: 100%;
+            position: relative;
+            right: 20px;
+        }
+    }
+}
+
+.rtl label.material {
+    right: 0;
+    left: auto;
+}
+
+.countries-input {
+    border: none;
 }

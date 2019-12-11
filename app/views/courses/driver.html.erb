@@ -2,7 +2,7 @@
   <div class="container">
     <div class="row">
       <div class="col-12 col-md-4-offset">
-        <div class="card">
+        <div class="card <%='rtl' if I18n.locale == :ar%> ">
           <div class="flex-center">
             <% if @course.client.photo.blank? %>
               <img src="https://hadeplatform.com/img/default.png" class="avatar-large-bordered">
@@ -19,7 +19,7 @@
             <h4><%= t('course_card.title') %></h4>
             <%= card_content_p(t('course_card.start_address'), @course.start_address) %>
             <%= card_content_p(t('course_card.end_address'), @course.end_address) %>
-            <%= card_content_p(t('course_card.duration'), "min #{@course.duration.round}") %>
+            <%= card_content_p(t('course_card.distance'), "#{@course.distance.round} km") %>
             <%= card_content_p(t('course_card.price'), @course.price) %>
           </div>
         </div>

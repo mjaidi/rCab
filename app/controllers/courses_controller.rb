@@ -35,7 +35,7 @@ class CoursesController < ApplicationController
     @course = Course.new
     authorize @course
     unless current_user.verified
-      redirect_to new_phone_verification_path, alert: 'Vous devez vérifier votre numéro pour continuer'
+      redirect_to new_phone_verification_path(I18n.locale), alert: 'Vous devez vérifier votre numéro pour continuer'
     end
   end
 
@@ -44,10 +44,7 @@ class CoursesController < ApplicationController
     @course.driver = current_user
     if @course.save
       redirect_to driver_course_path(I18n.locale,@course)
-      ActionCable.server.broadcast "course_channel_#{@course.id}",
-                                   driver_status:  render_driver_status(@course),
-                                   client_status:  render_client_status(@course),
-                                   id: @course.id
+      broadcast_course(@course)
     else
       redirect_to demandes_path
     end
@@ -56,20 +53,14 @@ class CoursesController < ApplicationController
   def start
     @course.status = "arrived"
     if @course.save
-      ActionCable.server.broadcast "course_channel_#{@course.id}",
-          driver_status:  render_driver_status(@course),
-          client_status:  render_client_status(@course),
-          id: @course.id
+      broadcast_course(@course)
     end
   end
 
   def end
     @course.status = "finished"
     if @course.save
-      ActionCable.server.broadcast "course_channel_#{@course.id}",
-                                   driver_status:  render_driver_status(@course),
-                                   client_status:  render_client_status(@course),
-                                   id: @course.id
+      broadcast_course(@course)
     end
   end
 
@@ -100,6 +91,7 @@ class CoursesController < ApplicationController
     @course.status = 'search'
     @course.save
     redirect_to client_course_path(I18n.locale,@course)
+    broadcast_new_course
   end
 
   def update
@@ -123,11 +115,46 @@ class CoursesController < ApplicationController
       params.require(:course).permit(:start_address, :end_address, :start_lat, :start_lon, :end_lat, :end_lon, :note, :comment)
     end
 
+    def broadcast_course(course)
+      # broadcast course for each language, then pick up depending on subscription params
+      I18n.available_locales.each do |l|
+        I18n.with_locale(l) do
+          ActionCable.server.broadcast "course_channel_#{@course.id}_#{l}",
+              driver_status:  render_driver_status(@course),
+              client_status:  render_client_status(@course),
+              id: @course.id,
+              lang: l.to_s
+        end
+      end
+    end
+
     def render_driver_status(course)
       render_to_string(partial: 'driver_status', locals: { course: course })
     end
 
     def render_client_status(course)
       render_to_string(partial: 'client_status', locals: { course: course })
+    end
+
+    def broadcast_new_course
+      # broadcast course for each language, then pick up depending on subscription params
+      @notifications = Course.where(status: 'search').order(created_at: :desc)
+      I18n.available_locales.each do |l|
+        I18n.with_locale(l) do
+          ActionCable.server.broadcast "new_course_channel_drivers_#{1}_#{l}",
+              notification_count:  renter_notification_count,
+              notification_content:  render_notification_content,
+              lang: l.to_s
+        end
+      end
+    end
+
+    def renter_notification_count
+      render_to_string(partial: 'shared/notifications_count', locals: { notifications: @notifications})
+    end
+
+    def render_notification_content
+      render_to_string(partial: 'shared/notifications_content', locals: { notifications: @notifications}
+      )
     end
 end

@@ -1,0 +1,53 @@
+.card {
+    min-height: 20rem;
+    padding: 1rem 1rem 1rem 1rem;
+    display: flex;
+    margin: 2rem 0rem 2rem 0rem;
+    background: #EEEEEE;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 4px;
+    position: relative;
+    h4 {
+        margin-bottom: 18px;
+        text-align: center;
+    }
+    h6 {
+        text-align: center;
+        margin-bottom: 1rem;
+    }
+}
+
+.card-content-wrapper {
+    display: flex;
+    .card-content-title {
+        color: $gray;
+        width: 35%;
+        font-weight: bold;
+    }
+    .card-content-content {
+        width: 65%;
+        font-weight: lighter;
+    }
+}
+
+.card.rtl {
+    text-align: right;
+}
+
+#driver_card {
+    margin-top: 4rem;
+    .btn-status {
+        border-radius: 1rem;
+        padding: 1rem 2rem;
+        box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+        margin: 1rem 0rem 1rem 0rem;
+        color: white;
+        background: #C4C4C4;
+    }
+    .btn-status-active {
+        background: $main;
+    }
+    .driver-info {
+        margin-top: 4rem;
+    }
+}

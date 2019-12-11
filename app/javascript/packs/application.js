@@ -5,8 +5,10 @@ import "@mapbox/mapbox-gl-directions/dist/mapbox-gl-directions.css";
 // import { initAutocomplete } from "../plugins/init_autocomplete";
 import initMapboxDirections from "../plugins/init_directions";
 import "../cable/course";
+import "../cable/new_course";
 import "../plugins/rating";
 import "../plugins/input_file";
+import "../components/signup";
 
 // initMapbox();
 // initAutocomplete();

@@ -28,13 +28,23 @@ ar:
     demandes: "الكورصات الحالية"
     dashboard: "الرحلات"
     login: "طلب دراجة نارية"
+    become_driver: "Devenir chauffeur"
+    profile: "Mon profile"
+    about: "A propos"
+    services: "Nos services"
+    security: "Sécurité"
+    cgu: "CGU"
+    support: "Support téchnique"
   footer:
     policy: "مركز المساعدة"
     security: "سياسة الخصوصية"
   home:
     banner_title1: "ركب"
     banner_subtitle1: "رحلة بعد رحلة باش نسهلو حياتك"
+    banner_title2: "rCab"
+    banner_subtitle2: "Vous voulez devenir chauffeur?"
     new_course_btn: "سافر دابا"
+    new_driver_btn: "Devenir Chauffeur"
     why:
       title: "علاش ركاب"
       card1: "أحسن طريقة باش اتنقل في المدينة هي بالمطور ، ما كاين لا الزحام لا تعطال ولا تبقى تساين ,كنواعدوك"
@@ -50,6 +60,10 @@ ar:
     new_course_btn: "رحلة جديدة"
   driver_dashboard:
     check_total: "المجموع"
+    total_courses: "Total"
+    nb_courses: "Nombre de courses"
+    total_ca: "Total chiffre d'affaire"
+    ok: "Ok"
   demandes:
     title: "الكورصات الحالية"
     select_course: "خود هاد الكورصة"
@@ -58,7 +72,7 @@ ar:
     start_address: ": منین"
     end_address: ": تالین"
     price: ": التمن"
-    duration: ": التمن"
+    distance: ": التمن"
   driver_card:
     title: "مول الموطور"
     name: ": سمیة"

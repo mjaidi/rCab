@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
-  ActiveAdmin.routes(self)
+  scope '(:locale)', defaults: { locale: 'fr' } do
+    ActiveAdmin.routes(self)
+  end
+
   scope "(:locale)", locale: /fr|ar/ do
+
     devise_for :users, :controllers => {:registrations => "registrations"}
     resources :phone_verifications, only: [:new, :create] do
       collection do
@@ -12,6 +16,13 @@ Rails.application.routes.draw do
 
     root to: 'pages#home'
     get '/change/:lang', to: 'pages#lang', as: 'lang'
+    get '/about', to: 'pages#about', as: :about
+    get '/cgu', to: 'pages#cgu', as: :cgu
+    get '/security', to: 'pages#security', as: :security
+    get '/services', to: 'pages#services', as: :services
+    get '/support', to: 'pages#support', as: :support
+
+
 
     resources :courses, except: [:index, :show] do
       member do
