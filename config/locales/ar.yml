@@ -23,6 +23,7 @@ ar:
     password: "الكود"
     confirmation: "عاود الكود"
     submit: "تشجل"
+    new_driver: "Devenir Chauffeur"
   navbar:
     logout: "déconnexion"
     demandes: "الكورصات الحالية"
