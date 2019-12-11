@@ -1,10 +1,10 @@
 <section id="login" class="<%='rtl' if I18n.locale == :ar%> ">
   <div class="login-wrapper">
-    <h2><%= t('signup.title') %></h2>
+    <h2><%= params[:driver] == "1" ? t('signup.new_driver') : t('signup.title') %></h2>
     <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
       <%= f.error_notification %>
       <%= hidden_field_tag 'locale', I18n.locale %>
-      <% if params[:driver] === "1"%>
+      <% if params[:driver] == "1"%>
         <%= f.input :driver, value: true, input_html: {checked: true, hidden: true}, label_html: {hidden: true} %>
       <% end %>
       <div class="form-inputs">
@@ -68,5 +68,11 @@
       </div>
     <% end %>
     <%= render "devise/shared/links" %>
-  </div>
+    <% if params[:driver] != "1"%>
+      <%= link_to t('signup.new_driver'), "/#{I18n.locale}#{new_registration_path(:user)}?driver=1" %><br />
+<% end %>
+<% if params[:driver] == "1"%>
+  <%= link_to t('devise.signup'), "/#{I18n.locale}#{new_registration_path(resource_name)}" %><br />
+<% end %>
+</div>
 </section>

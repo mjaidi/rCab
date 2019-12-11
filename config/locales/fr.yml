@@ -23,6 +23,7 @@ fr:
     password: "Mot de passe"
     confirmation: "Confirmer mot de passe"
     submit: "S'inscrire"
+    new_driver: "Devenir Chauffeur"
   navbar:
     logout: "Déconnexion"
     demandes: "Demandes en Cours"
