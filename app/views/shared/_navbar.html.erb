@@ -14,6 +14,21 @@
   <% end %>
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
+      <li class='nav-item mobile-only'>
+        <%= link_to t("navbar.about"), about_path(I18n.locale), class: "nav-link" %>
+      </li>
+      <li class='nav-item mobile-only'>
+        <%= link_to t("navbar.services"), services_path(I18n.locale), class: "nav-link" %>
+      </li>
+      <li class='nav-item mobile-only'>
+        <%= link_to t("navbar.support"), support_path(I18n.locale), class: "nav-link" %>
+      </li>
+      <li class='nav-item mobile-only'>
+        <%= link_to t("navbar.cgu"), cgu_path(I18n.locale), class: "nav-link" %>
+      </li>
+      <li class='nav-item mobile-only'>
+        <%= link_to t("navbar.security"), security_path(I18n.locale), class: "nav-link" %>
+      </li>
       <% if user_signed_in? %>
         <% if current_user.driver %>
           <li class="nav-item">
@@ -27,21 +42,6 @@
             <%= link_to t('navbar.dashboard'), dashboard_path(I18n.locale), class: "nav-link" %>
           </li>
         <% end %>
-        <li class='nav-item mobile-only'>
-          <%= link_to t("navbar.about"), about_path(I18n.locale), class: "nav-link" %>
-        </li>
-        <li class='nav-item mobile-only'>
-          <%= link_to t("navbar.services"), services_path(I18n.locale), class: "nav-link" %>
-        </li>
-        <li class='nav-item mobile-only'>
-          <%= link_to t("navbar.support"), support_path(I18n.locale), class: "nav-link" %>
-        </li>
-        <li class='nav-item mobile-only'>
-          <%= link_to t("navbar.cgu"), cgu_path(I18n.locale), class: "nav-link" %>
-        </li>
-        <li class='nav-item mobile-only'>
-          <%= link_to t("navbar.security"), security_path(I18n.locale), class: "nav-link" %>
-        </li>
         <li class="nav-item dropdown">
           <% if current_user.photo.blank? %>
             <%= image_tag 'avatar.png', class: 'avatar dropdown-toggle', id: "navbarDropdown", data: {toggle: "dropdown"} %>
