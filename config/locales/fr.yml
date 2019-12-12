@@ -24,6 +24,15 @@ fr:
     confirmation: "Confirmer mot de passe"
     submit: "S'inscrire"
     new_driver: "Devenir Chauffeur"
+  verify:
+    new_title: "Vérifier téléphone"
+    code_pays: "Code pays :"
+    phone: "Numéro téléphone :"
+    call: "Appel"
+    submit_verify: "Véfifier"
+    challenge_title: "Code de Vérification"
+    enter_code: "Entrer le code qui vous a été envoyé :"
+    success_message: "Félicitations votre numéro à bien été vérifié"
   navbar:
     logout: "Déconnexion"
     demandes: "Demandes en Cours"

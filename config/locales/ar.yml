@@ -24,6 +24,15 @@ ar:
     confirmation: "عاود الكود"
     submit: "تشجل"
     new_driver: "Devenir Chauffeur"
+  verify:
+    new_title: "Vérifier téléphone"
+    code_pays: "Code pays :"
+    phone: "Numéro téléphone :"
+    call: "Appel"
+    submit_verify: "Véfifier"
+    challenge_title: "Code de Vérification"
+    enter_code: "Entrer le code qui vous a été envoyé :"
+    success_message: "Félicitations votre numéro à bien été vérifié"
   navbar:
     logout: "déconnexion"
     demandes: "الكورصات الحالية"
