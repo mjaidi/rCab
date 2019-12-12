@@ -57,7 +57,7 @@
           <span class="highlight"></span>
           <span class="bar"></span>
           <%= content_for(:the_links) do %>
-            Accepter les <%= link_to "Conditions d'utilisation", cgu_path, remote: true %>
+            Accepter les <%= link_to "Conditions d'utilisation", cgu_path, target: '_blank' %>
           <% end %>
           <%= f.label :password_confirmation, label: t('signup.confirmation'), class: 'material' %>
         </div>
