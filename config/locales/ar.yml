@@ -8,6 +8,8 @@ ar:
     signup: "تشجل"
     forgot_password: "نسیت لكود"
     confirmation_instructions: "Didn't receive confirmation instructions?"
+    reset_password_title: "Mot de passe oublié?"
+    password_reset: "Réinitializer mot de passe"
   signin:
     title: "تكونیكطا"
     phone: "نمرة تلیفون"

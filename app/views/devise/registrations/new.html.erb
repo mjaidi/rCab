@@ -63,7 +63,7 @@
         </div>
       </div>
       <%= f.input :terms, label: content_for(:the_links), label_html: {class: 'checkbox-label'}  %>
-      <div class="form-actions flex-center">
+      <div class="form-actions flex-center mb-5">
         <%= f.button :submit, t('signup.submit'), class: 'btn btn-success btn-rCab', id: 'signup-btn', disabled: !resource.terms %>
       </div>
     <% end %>
