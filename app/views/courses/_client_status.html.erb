@@ -29,7 +29,10 @@
       </div>
     <% else %>
     <div class=" flex-center btn btn-lg btn-success btn-status btn-status-active">
-      <%= t('course_status.search') %>
+      <div >
+        <%= image_tag 'spinner', class: 'spinner' %>
+        <%= t('course_status.search') %>
+      </div>
     </div>
     <% end %>
   </div>
