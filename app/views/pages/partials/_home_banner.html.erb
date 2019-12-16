@@ -1,0 +1,15 @@
+<div id="home-carousel"  >
+  <div class="banner-gradient">
+    <%= image_tag 'scooter_2.png' %>
+  </div>
+  <div class="banner-content">
+    <h1><%= t('home.banner_title1') %></h1>
+    <h4><%= t('home.banner_subtitle1') %></h4>
+    <% if policy(Course).new? %>
+      <%= link_to t('home.new_course_btn'), new_course_path(I18n.locale), class: 'btn btn-success btn-rCab' %>
+    <% end %>
+    <% if policy(Course).select? %>
+      <%= link_to t('navbar.demandes'), demandes_path(I18n.locale), class: 'btn btn-success btn-rCab' %>
+    <% end %>
+  </div>
+</div>

@@ -1,5 +1,9 @@
 <section id="home-banner">
-  <%= render 'pages/partials/carousel' %>
+  <% if user_signed_in? %>
+    <%= render 'pages/partials/home_banner' %>
+  <% else %>
+    <%= render 'pages/partials/carousel' %>
+  <% end %>
 </section>
 <section id="home-content" class="<%='rtl' if I18n.locale == :ar%>">
   <h2 class="home-title"><%= t('home.why.title') %></h2>
@@ -79,6 +83,6 @@
 </section>
 <section id="home-video">
   <div class="embedresize">
-    <iframe width="100%" height="100%" src="https://www.youtube.com/embed/GtgKEcSd6M0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen ></iframe>
+    <iframe width="100%" height="100%" src="https://www.youtube.com/embed/GtgKEcSd6M0?autoplay=1" frameborder="0"  allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen ></iframe>
   </div>
 </section>

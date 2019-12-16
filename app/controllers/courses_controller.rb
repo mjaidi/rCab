@@ -150,11 +150,10 @@ class CoursesController < ApplicationController
     end
 
     def renter_notification_count
-      render_to_string(partial: 'shared/notifications_count', locals: { notifications: @notifications})
+      render_to_string(partial: 'shared/notifications_count', locals: { notifications: @notifications, notification_notice: 'Nouvelle Course'})
     end
 
     def render_notification_content
-      render_to_string(partial: 'shared/notifications_content', locals: { notifications: @notifications}
-      )
+      render_to_string(partial: 'shared/notifications_content', locals: { notifications: @notifications})
     end
 end
