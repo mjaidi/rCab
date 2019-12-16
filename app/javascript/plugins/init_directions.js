@@ -3,12 +3,14 @@ import MapboxDirections from "@mapbox/mapbox-gl-directions/dist/mapbox-gl-direct
 import style from "./mapbox_style";
 import axios from "axios";
 
+export let map = null;
+
 const initMapboxDirections = () => {
   const mapElement = document.getElementById("map-dir");
   if (mapElement) {
     // initialize map with custom styling
     mapboxgl.accessToken = mapElement.dataset.mapboxApiKey;
-    let map = new mapboxgl.Map({
+    map = new mapboxgl.Map({
       container: "map-dir",
       style: "mapbox://styles/mjaidi/ck053p1qb10og1crdi9qq63vy",
       center: [-7.6, 33.56],
