@@ -37,6 +37,8 @@
   data-markers="<%= @markers.to_json %>"
   data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
   data-with-input='false'
+  data-course="<%=@course.id%>"
+  data-driver="<%=current_user.driver%>"
 ></div>
 <%#= link_to 'Edit', edit_course_path(@course) %>
 <%#= link_to 'Back', courses_path %>
