@@ -36,6 +36,7 @@ if (mapElement) {
     marker.setLngLat([lng, lat]).addTo(map);
   }
 
+  // for updating position when getting new coordinates
   function setLocation(position) {
     last_lat = position.coords.latitude;
     last_lng = position.coords.longitude;
@@ -55,7 +56,7 @@ if (mapElement) {
       .then(r => console.log(r));
   }
 
-  // FUNCTION FOR SETTING UP PUBNUB
+  // FUNCTION FOR SETTING UP ActionCable geolocation
   function location() {
     createChannel(
       { channel: "LocationChannel", id: mapElement.dataset.course },

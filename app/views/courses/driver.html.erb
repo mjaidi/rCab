@@ -39,9 +39,9 @@
   data-with-input='false'
   data-course="<%=@course.id%>"
   data-driver="<%=current_user.driver%>"
-  data-driver-id="<%=@course.driver.id%>"
-  data-driver-last-lat="<%=@course.driver.last_lat%>"
-  data-driver-last-lng="<%=@course.driver.last_lng%>"
+  data-driver-id="<%=@course&.driver&.id%>"
+  data-driver-last-lat="<%=@course&.driver&.last_lat%>"
+  data-driver-last-lng="<%=@course&.driver&.last_lng%>"
 ></div>
 <%#= link_to 'Edit', edit_course_path(@course) %>
 <%#= link_to 'Back', courses_path %>
