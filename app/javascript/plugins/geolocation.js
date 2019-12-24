@@ -22,8 +22,8 @@ const mapElement = document.getElementById("map-dir");
 
 // only run this code on pages with a map
 if (mapElement) {
-  let last_lat = parseFloat(mapElement.dataset.driverLastLat);
-  let last_lng = parseFloat(mapElement.dataset.driverLastLng);
+  let last_lat = parseFloat(mapElement.dataset.driverLastLat) || 0;
+  let last_lng = parseFloat(mapElement.dataset.driverLastLng) || 0;
   // initialize marker
   const element = document.createElement("div");
   element.className = "driver-marker";
