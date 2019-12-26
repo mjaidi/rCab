@@ -45,15 +45,21 @@ const initMapboxDirections = () => {
         document
           .getElementById("current-position")
           .addEventListener("click", e => {
-            navigator.geolocation.getCurrentPosition(p => {
-              reverseGeocode(
-                p.coords.latitude,
-                p.coords.longitude,
-                mapElement.dataset.mapboxApiKey
-              ).then(r => {
-                directions.setOrigin(r);
-              });
-            });
+            navigator.geolocation.getCurrentPosition(
+              p => {
+                reverseGeocode(
+                  p.coords.latitude,
+                  p.coords.longitude,
+                  mapElement.dataset.mapboxApiKey
+                ).then(r => {
+                  directions.setOrigin(r);
+                });
+              },
+              () => {},
+              {
+                enableHighAccuracy: true
+              }
+            );
             document.getElementById("current-position").classList.add("hidden");
           });
       } else {
@@ -148,9 +154,15 @@ function setDirectionsOnStaticMap(directions) {
     mapElement.dataset.status === "accepted" &&
     mapElement.dataset.driver === "true"
   ) {
-    navigator.geolocation.getCurrentPosition(p => {
-      directions.setOrigin([p.coords.longitude, p.coords.latitude]);
-    });
+    navigator.geolocation.getCurrentPosition(
+      p => {
+        directions.setOrigin([p.coords.longitude, p.coords.latitude]);
+      },
+      () => {},
+      {
+        enableHighAccuracy: true
+      }
+    );
     directions.setDestination([
       markers.start_address.lng,
       markers.start_address.lat
