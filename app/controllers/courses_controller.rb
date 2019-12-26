@@ -1,7 +1,7 @@
 require 'date'
 
 class CoursesController < ApplicationController
-  before_action :set_course, only: [:client, :driver, :edit, :update, :select, :start, :end, :destroy, :set_price]
+  before_action :set_course, only: [:client, :driver, :edit, :update, :select, :start, :end, :destroy, :set_price, :map_display]
 
 
   def demandes
@@ -25,6 +25,13 @@ class CoursesController < ApplicationController
   end
 
   def driver
+    @markers = {
+      start_address: { lat: @course.start_lat, lng: @course.start_lon },
+      end_address: { lat: @course.end_lat, lng: @course.end_lon }
+    }
+  end
+
+  def map_display
     @markers = {
       start_address: { lat: @course.start_lat, lng: @course.start_lon },
       end_address: { lat: @course.end_lat, lng: @course.end_lon }

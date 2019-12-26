@@ -31,6 +31,7 @@ Rails.application.routes.draw do
         get 'select', to: 'courses#select', as: :select
         get 'start', to: 'courses#start', as: :start
         get 'end', to: 'courses#end', as: :end
+        get 'map_display', to: 'courses#map_display', as: :map_display
         patch 'set_price', to: 'courses#set_price', as: :set_price
       end
     end

@@ -79,6 +79,9 @@ ar:
   demandes:
     title: "الكورصات الحالية"
     select_course: "خود هاد الكورصة"
+    map: "Map"
+    map_title: "Map de la course "
+    retour: "Retour aux demandes"
   course_card:
     title: "الرحلة"
     start_address: ": منین"

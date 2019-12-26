@@ -4,9 +4,9 @@ import style from "./mapbox_style";
 import axios from "axios";
 
 export let map = null;
+const mapElement = document.getElementById("map-dir");
 
 const initMapboxDirections = () => {
-  const mapElement = document.getElementById("map-dir");
   if (mapElement) {
     // initialize map with custom styling
     mapboxgl.accessToken = mapElement.dataset.mapboxApiKey;
@@ -131,24 +131,51 @@ const initMapboxDirections = () => {
       });
     } else {
       // on views without the form initiaize mapbox directions with markers and route but without input boxes
-      const markers = JSON.parse(mapElement.dataset.markers);
       options.controls.inputs = false;
       options.interactive = false;
       let directions = new MapboxDirections(options);
       map.addControl(directions, "top-left");
       map.on("load", e => {
-        directions.setOrigin([
-          markers.start_address.lng,
-          markers.start_address.lat
-        ]);
-        directions.setDestination([
-          markers.end_address.lng,
-          markers.end_address.lat
-        ]);
+        setDirectionsOnStaticMap(directions);
       });
     }
   }
 };
+
+function setDirectionsOnStaticMap(directions) {
+  const markers = JSON.parse(mapElement.dataset.markers);
+  if (
+    mapElement.dataset.status === "accepted" &&
+    mapElement.dataset.driver === "true"
+  ) {
+    navigator.geolocation.getCurrentPosition(p => {
+      directions.setOrigin([p.coords.longitude, p.coords.latitude]);
+    });
+    directions.setDestination([
+      markers.start_address.lng,
+      markers.start_address.lat
+    ]);
+    document.getElementById("status-arrived").addEventListener("click", () => {
+      directions.setOrigin([
+        markers.start_address.lng,
+        markers.start_address.lat
+      ]);
+      directions.setDestination([
+        markers.end_address.lng,
+        markers.end_address.lat
+      ]);
+    });
+  } else {
+    directions.setOrigin([
+      markers.start_address.lng,
+      markers.start_address.lat
+    ]);
+    directions.setDestination([
+      markers.end_address.lng,
+      markers.end_address.lat
+    ]);
+  }
+}
 
 async function reverseGeocode(lat, lon, token) {
   let address = "";

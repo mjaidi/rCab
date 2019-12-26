@@ -6,6 +6,9 @@
         <div class="col-12 col-md-4">
           <%= render 'courses/course_card', course: course do %>
             <div class="flex-center" style="margin-top: 16px;">
+              <%= link_to t('demandes.map'), map_display_course_path(I18n.locale,course), class: "btn btn-success btn-rCab btn-rCab__sm"%>
+            </div>
+            <div class="flex-center" style="margin-top: 16px;">
               <%= link_to t('demandes.select_course'), select_course_path(I18n.locale,course), class: "btn btn-success btn-rCab btn-rCab__sm"%>
             </div>
           <% end %>
@@ -14,4 +17,3 @@
     </div>
   </div>
 </section>
-<br>

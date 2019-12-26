@@ -14,7 +14,7 @@ class ApplicationController < ActionController::Base
   rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
   def user_not_authorized
     flash[:alert] = "Vous n'êtes pas autorisé a éffectuer cette action."
-    redirect_to(root_path(I18.locale))
+    redirect_to root_path(I18n.locale)
   end
 
   # Devise Signup parameters update

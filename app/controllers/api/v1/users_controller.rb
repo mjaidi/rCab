@@ -3,7 +3,7 @@ class Api::V1::UsersController < Api::V1::BaseController
 
   def set_location
     if @user.update(user_params)
-      @user.last_location_update = Time.now
+      @user.last_location_update = Time.current
       @user.save
       render json: {success: true}
       ActionCable.server.broadcast "location_channel_#{params[:course_id]}",

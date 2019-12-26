@@ -1,0 +1,33 @@
+<% if display_type === 'menu' %>
+  <p class='dropdown-item'>
+    <%= link_to t("navbar.about"), about_path(I18n.locale), class: "nav-link" %>
+  </p>
+  <p class='dropdown-item'>
+    <%= link_to t("navbar.services"), services_path(I18n.locale), class: "nav-link" %>
+  </p>
+  <p class='dropdown-item'>
+    <%= link_to t("navbar.support"), support_path(I18n.locale), class: "nav-link" %>
+  </p>
+  <p class='dropdown-item'>
+    <%= link_to t("navbar.cgu"), cgu_path(I18n.locale), class: "nav-link" %>
+  </p>
+  <p class='dropdown-item'>
+    <%= link_to t("navbar.security"), security_path(I18n.locale), class: "nav-link" %>
+  </p>
+<% elsif display_type == 'list' %>
+  <li class='nav-item mobile-only'>
+    <%= link_to t("navbar.about"), about_path(I18n.locale), class: "nav-link" %>
+  </li>
+  <li class='nav-item mobile-only'>
+    <%= link_to t("navbar.services"), services_path(I18n.locale), class: "nav-link" %>
+  </li>
+  <li class='nav-item mobile-only'>
+    <%= link_to t("navbar.support"), support_path(I18n.locale), class: "nav-link" %>
+  </li>
+  <li class='nav-item mobile-only'>
+    <%= link_to t("navbar.cgu"), cgu_path(I18n.locale), class: "nav-link" %>
+  </li>
+  <li class='nav-item mobile-only'>
+    <%= link_to t("navbar.security"), security_path(I18n.locale), class: "nav-link" %>
+  </li>
+<% end %>

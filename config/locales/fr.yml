@@ -79,6 +79,9 @@ fr:
   demandes:
     title: "Demandes en cours"
     select_course: "Accépter course"
+    map: "Map"
+    map_title: "Map de la course "
+    retour: "Retour aux demandes"
   course_card:
     title: "Course"
     start_address: "Départ :"

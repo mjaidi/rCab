@@ -3,18 +3,4 @@
     <%= render 'client_status', course: @course %>
   </div>
 </section>
-<div
-  id="map-dir"
-  style="width: 100%;
-  height: 600px;"
-  data-markers="<%= @markers.to_json %>"
-  data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
-  data-with-inputs='false'
-  data-course="<%=@course.id%>"
-  data-driver="<%=current_user.driver%>"
-  data-driver-id="<%=@course&.driver&.id%>"
-  data-driver-last-lat="<%=@course&.driver&.last_lat%>"
-  data-driver-last-lng="<%=@course&.driver&.last_lng%>"
-></div>
-<%#= link_to 'Edit', edit_course_path(@course) %>
-<%#= link_to 'Back', courses_path %>
+<%= render 'courses/map', markers: @markers, course: @course, driver: @course.driver, with_inputs: false, height: '600px', stream: true %>

@@ -21,9 +21,15 @@ initMapboxDirections();
 const mapElement = document.getElementById("map-dir");
 
 // only run this code on pages with a map
-if (mapElement) {
-  let last_lat = parseFloat(mapElement.dataset.driverLastLat) || 0;
-  let last_lng = parseFloat(mapElement.dataset.driverLastLng) || 0;
+if (mapElement && mapElement.dataset.withInputs === "false") {
+  let last_lat =
+    new Date() - new Date(mapElement.dataset.driverLastUpdate) > 300000
+      ? 0
+      : parseFloat(mapElement.dataset.driverLastLat) || 0;
+  let last_lng =
+    new Date() - new Date(mapElement.dataset.driverLastUpdate) > 300000
+      ? 0
+      : parseFloat(mapElement.dataset.driverLastLng) || 0;
   // initialize marker
   const element = document.createElement("div");
   element.className = "driver-marker";
@@ -83,7 +89,7 @@ if (mapElement) {
   }
 
   // run only on map of current course not on map where user is setting the course
-  if (mapElement.dataset.withInputs !== "true") {
+  if (mapElement.dataset.stream === "true") {
     location();
   }
 }

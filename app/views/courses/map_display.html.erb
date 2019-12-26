@@ -1,0 +1,5 @@
+<h4 class = "text-center mt-3"> <%= t('demandes.map_title') + @course.id.to_s %></h4>
+<div class="flex-center">
+  <%= link_to t('demandes.retour'), demandes_path(I18n.locale), class: "btn btn-success btn-rCab btn-rCab__sm my-3" %>
+</div>
+<%= render 'courses/map', markers: @markers, course: @course, driver: current_user, with_inputs: false, height: '600px', stream: false  %>
