@@ -77,8 +77,8 @@ const style = [
     type: "circle",
     source: "directions",
     paint: {
-      "circle-radius": 8,
-      "circle-color": "#fff"
+      "circle-radius": 18,
+      "circle-color": "#39ff14"
     },
     filter: ["all", ["in", "$type", "Point"], ["in", "id", "waypoint"]]
   },
@@ -87,11 +87,12 @@ const style = [
     type: "circle",
     source: "directions",
     paint: {
-      "circle-radius": 6,
-      "circle-color": "#8a8bc9"
+      "circle-radius": 18,
+      "circle-color": "#39ff14"
     },
     filter: ["all", ["in", "$type", "Point"], ["in", "id", "waypoint"]]
   },
+
   {
     id: "directions-origin-point",
     type: "circle",

@@ -1,0 +1,16 @@
+<div
+  id="map-dir"
+  style="width: 100%;
+  height: <%=height%>;"
+  data-markers="<%= markers.to_json %>"
+  data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
+  data-with-inputs='<%=with_inputs%>'
+  data-course="<%=course.id%>"
+  data-driver="<%=current_user.driver%>"
+  data-driver-id="<%=driver&.id%>"
+  data-driver-last-lat="<%=driver&.last_lat%>"
+  data-driver-last-lng="<%=driver&.last_lng%>"
+  data-driver-last-update="<%=driver&.last_location_update%>"
+  data-stream='<%=stream%>'
+  data-status='<%=course&.status%>'
+></div>

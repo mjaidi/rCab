@@ -12,6 +12,7 @@
     <%= stylesheet_link_tag 'application', media: 'all' %>
     <%= stylesheet_link_tag    'https://cdnjs.cloudflare.com/ajax/libs/authy-form-helpers/2.3/form.authy.min.css', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_pack_tag 'application', media: 'all' %> <!-- Uncomment if you import CSS in app/javascript/packs/application.js -->
+    <%= render 'shared/google_analytics' %>
   </head>
   <body>
     <%= render 'shared/navbar' %>
@@ -19,11 +20,11 @@
     <div id="page-container">
       <div id="content-wrap">
         <%= yield %>
-     </div>
-     <div id="footer">
-      <%= render 'shared/footer' %>
-     </div>
-   </div>
+      </div>
+      <div id="footer">
+        <%= render 'shared/footer' %>
+      </div>
+    </div>
     <%= javascript_include_tag 'application' %>
     <%= javascript_include_tag 'https://cdnjs.cloudflare.com/ajax/libs/authy-form-helpers/2.3/form.authy.min.js', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application' %>

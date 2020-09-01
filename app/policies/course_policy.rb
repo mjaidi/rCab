@@ -35,6 +35,10 @@ class CoursePolicy < ApplicationPolicy
     driver? && record.status = "arrived"
   end
 
+  def map_display?
+    user.driver && record.driver == nil
+  end
+
   def create?
     new?
   end

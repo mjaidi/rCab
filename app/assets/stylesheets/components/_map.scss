@@ -36,3 +36,12 @@
       width: 200px;
       right: calc(50% - 100px);
   }
+  
+  .driver-marker {
+      background-image: asset-url('scooter.png');
+      background-position: center;
+      background-size: contain;
+      background-repeat: no-repeat;
+      width: 50px;
+      height: 50px;
+  }

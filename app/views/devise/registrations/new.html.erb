@@ -57,13 +57,13 @@
           <span class="highlight"></span>
           <span class="bar"></span>
           <%= content_for(:the_links) do %>
-            Accepter les <%= link_to "Conditions d'utilisation", cgu_path, remote: true %>
+            Accepter les <%= link_to "Conditions d'utilisation", cgu_path, target: '_blank' %>
           <% end %>
           <%= f.label :password_confirmation, label: t('signup.confirmation'), class: 'material' %>
         </div>
       </div>
       <%= f.input :terms, label: content_for(:the_links), label_html: {class: 'checkbox-label'}  %>
-      <div class="form-actions flex-center">
+      <div class="form-actions flex-center mb-5">
         <%= f.button :submit, t('signup.submit'), class: 'btn btn-success btn-rCab', id: 'signup-btn', disabled: !resource.terms %>
       </div>
     <% end %>

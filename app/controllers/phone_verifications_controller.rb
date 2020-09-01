@@ -30,7 +30,7 @@ class PhoneVerificationsController < ApplicationController
     if @response.ok?
       current_user.verified = true
       current_user.save
-      redirect_to root_path(I18n.locale), notice: 'Félicitations votre numéro à bien été vérifié'
+      redirect_to root_path(I18n.locale), notice: t('verify.success_message')
     else
       render :challenge
     end

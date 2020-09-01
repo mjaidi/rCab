@@ -1,7 +1,7 @@
 require 'date'
 
 class CoursesController < ApplicationController
-  before_action :set_course, only: [:client, :driver, :edit, :update, :select, :start, :end, :destroy, :set_price]
+  before_action :set_course, only: [:client, :driver, :edit, :update, :select, :start, :end, :destroy, :set_price, :map_display]
 
 
   def demandes
@@ -25,6 +25,13 @@ class CoursesController < ApplicationController
   end
 
   def driver
+    @markers = {
+      start_address: { lat: @course.start_lat, lng: @course.start_lon },
+      end_address: { lat: @course.end_lat, lng: @course.end_lon }
+    }
+  end
+
+  def map_display
     @markers = {
       start_address: { lat: @course.start_lat, lng: @course.start_lon },
       end_address: { lat: @course.end_lat, lng: @course.end_lon }
@@ -150,11 +157,10 @@ class CoursesController < ApplicationController
     end
 
     def renter_notification_count
-      render_to_string(partial: 'shared/notifications_count', locals: { notifications: @notifications})
+      render_to_string(partial: 'shared/notifications_count', locals: { notifications: @notifications, notification_notice: 'Nouvelle Course'})
     end
 
     def render_notification_content
-      render_to_string(partial: 'shared/notifications_content', locals: { notifications: @notifications}
-      )
+      render_to_string(partial: 'shared/notifications_content', locals: { notifications: @notifications})
     end
 end

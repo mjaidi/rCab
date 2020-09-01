@@ -8,6 +8,8 @@ fr:
     signup: "S'inscrire"
     forgot_password: "Mot de passe oublié?"
     confirmation_instructions: "Didn't receive confirmation instructions?"
+    reset_password_title: "Mot de passe oublié?"
+    password_reset: "Réinitializer mot de passe"
   signin:
     title: "Se connécter"
     phone: "Numéro de téléphone "
@@ -24,6 +26,15 @@ fr:
     confirmation: "Confirmer mot de passe"
     submit: "S'inscrire"
     new_driver: "Devenir Chauffeur"
+  verify:
+    new_title: "Vérifier téléphone"
+    code_pays: "Code pays :"
+    phone: "Numéro téléphone :"
+    call: "Appel"
+    submit_verify: "Véfifier"
+    challenge_title: "Code de Vérification"
+    enter_code: "Entrer le code qui vous a été envoyé :"
+    success_message: "Félicitations votre numéro à bien été vérifié"
   navbar:
     logout: "Déconnexion"
     demandes: "Demandes en Cours"
@@ -68,6 +79,9 @@ fr:
   demandes:
     title: "Demandes en cours"
     select_course: "Accépter course"
+    map: "Map"
+    map_title: "Map de la course "
+    retour: "Retour aux demandes"
   course_card:
     title: "Course"
     start_address: "Départ :"
